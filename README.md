@@ -5,6 +5,7 @@
 </p>
 
 <p align="center">一款 Material Design 风格的主题</p>
+<p align="center">Hexo Fluid 主题 UI 修改版</p>
 
 <p align="center">
   <a href="https://github.com/fluid-dev/hexo-theme-fluid/releases"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/fluid-dev/hexo-theme-fluid"></a>
@@ -18,10 +19,15 @@
 
 ## 示例
 
+原版
+
 [Rook1e's blog](https://0x2e.github.io)
 
 [zkqiang's blog](http://zkqiang.cn)
 
+修改版
+
+[七夏浅笑](https://www.julydate.com)
 
 ## 文档
 
