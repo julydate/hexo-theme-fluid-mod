@@ -5,8 +5,8 @@
 
 <p align="center">一款 Material Design 风格的主题</p>
 <p align="center">Hexo Fluid 主题 UI 修改版</p>
-![snipaste_fluid.png](https://ae01.alicdn.com/kf/U81d7d60459dd4ed484d28e5f99e933e2F.png)
 
+![snipaste_fluid.png](https://ae01.alicdn.com/kf/U81d7d60459dd4ed484d28e5f99e933e2F.png)
 
 ## 示例
 
