@@ -1,18 +1,65 @@
-<footer class="mt-5">
+<div id="footerContent"  class="rgba-black-slight">
+<footer class="pt-5">
   <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    <br>
-    <% if(theme.footer.beian.enable) { %>
-      <a href="http://beian.miit.gov.cn/" target="_blank"
-         rel="nofollow noopener"><%- theme.footer.beian.icp_text %></a>
-      <% if(theme.footer.beian.police_text && theme.footer.beian.police_code) { %>
-        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=<%- theme.footer.beian.police_code %>"
-           target="_blank" rel="nofollow noopener"> | <%- theme.footer.beian.police_text %></a>
-      <% } %>
+    <div class="footer-theme">
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener noreferrer">Hexo</a> theme <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener noreferrer">Fluid</a> mod by <a href="https://github.com/julydate/hexo-theme-fluid-mod" target="_blank" rel="nofollow noopener noreferrer">Julydate</a>
+    </div>
+
+    <% if(theme.footer.show_copyright || theme.footer.date.enable) { %>
+      <div class="footer-copyright">
+        <% if(theme.footer.show_copyright) { %>
+          ©<%= date(new Date(), 'YYYY') %>&nbsp;<%= config.author || config.title %>
+        <% } %>
+        <% if(theme.footer.date.enable) { %>
+          <% if(theme.footer.show_copyright) { %>
+            <i class="iconfont icon-love"></i>
+          <% } %>
+          <span><%= theme.footer.date.text.split('%d')[0] %><span id="runtime"></span><%= theme.footer.date.text.split('%d')[1] %></span>
+        <% } %>
+      </div>
     <% } %>
+
+    <% if(theme.footer.site_pv.enable || theme.footer.site_uv.enable) { %>
+      <div class="footer-siteview">
+        <% if(theme.footer.site_pv.enable) { %>
+          <!-- 不蒜子统计PV -->
+          <span id="busuanzi_container_site_pv" style="display:none">
+              <%= theme.footer.site_pv.text.split('%d')[0] %><span id="busuanzi_value_site_pv"></span><%= theme.footer.site_pv.text.split('%d')[1] %>
+          </span>
+        <% } %>
+        <% if(theme.footer.site_uv.enable) { %>
+          <!-- 不蒜子统计UV -->
+          <span id="busuanzi_container_site_uv" style="display:none">
+            <% if(theme.footer.site_pv.enable) { %>|<% } %>
+            <%= theme.footer.site_uv.text.split('%d')[0] %><span id="busuanzi_value_site_uv"></span><%= theme.footer.site_uv.text.split('%d')[1] %>
+          </span>
+        <% } %>
+      </div>
+    <% } %>
+
+    <% if(theme.footer.beian.enable) { %>
+      <!-- 备案信息 -->
+      <div class="footer-beian">
+        <a href="http://beian.miit.gov.cn/" target="_blank"
+          rel="nofollow noopener noreferrer"><%- theme.footer.beian.icp_text %></a>
+        <% if(theme.footer.beian.police_text && theme.footer.beian.police_code) { %>
+          <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=<%- theme.footer.beian.police_code %>"
+            target="_blank" rel="nofollow noopener noreferrer"> | <%- theme.footer.beian.police_text %></a>
+        <% } %>
+      </div>
+    <% } %>
+
+    <% if(theme.footer.hitokoto) { %>
+      <!-- 一言 -->
+      <div class="footer-hitokoto">
+        <a id="hitokotoa" href="#" target="_blank" rel="nofollow noopener noreferrer">
+          <span id="hitokoto"></span>
+        </a>
+      </div>
+    <% } %>
+    
   </div>
 </footer>
-
+</div>
 <%- partial('_partial/scripts.ejs') %>
+<%- partial('_partial/analytics.ejs') %>

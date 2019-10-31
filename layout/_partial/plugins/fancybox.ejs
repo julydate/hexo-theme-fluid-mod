@@ -1,0 +1,15 @@
+<% if(is_post() && theme.fancybox.enable){ %>
+  <%- js_ex(theme.static_prefix.fancybox, "jquery.fancybox.min.js") %>
+  <script type="text/javascript">
+  /* Fancybox */
+  var setupFancybox = function () {
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(function() {
+    var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      $(this).wrap(element);
+    });
+  };
+  setupFancybox();
+  </script>
+<% } %>

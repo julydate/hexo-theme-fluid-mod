@@ -5,19 +5,28 @@ if (theme.index.slogan.enable) {
 page.banner_img = theme.index.banner_img
 page.banner_img_height = theme.index.banner_img_height
 %>
-
 <% page.posts.each(function (post) { %>
   <div class="row mb-4 mx-auto">
     <% var post_url = url_for(post.path) %>
-    <% if(post.index_img != null) { %>
+    <% if(theme.index.post_img.enable) { %>
+      <% if(post.index_img != null) { %>
       <div class="col-12 col-md-4 m-auto">
         <a href="<%- post_url %>" target="<%- theme.index.post_url_target %>">
           <img src="<%- post.index_img %>" alt="<%= post.title %>" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
       </div>
+      <% } else { %>
+      <div class="col-12 col-md-4 m-auto">
+        <a href="<%- post_url %>" target="<%- theme.index.post_url_target %>">
+          <img src="<%= theme.index.post_img.default || '/img/default.png' %>" alt="<%= post.title %>" class="img-fluid rounded z-depth-3 index-thumbnails image_random">
+        </a>
+      </div>
+      <% } %>
+      <div class="col-12 col-md-8 m-auto">
+    <% } else { %>
+      <div class="col-12 col-md-12 m-auto">
     <% } %>
-    <div class="col-12 col-md-8 m-auto">
-      <a href="<%- post_url %>">
+      <a href="<%- post_url %>" target="<%- theme.index.post_url_target %>">
         <p class="h4 index-header"><%= post.title %></p>
         <% var height_limit = '' %>
         <% if(post.excerpt.length > 0) { %>
@@ -32,10 +41,13 @@ page.banner_img_height = theme.index.banner_img_height
           <div class="index-text mb-1"><%- excerpt %></div>
         </div>
       </a>
-
       <div>
         <% if(theme.index.post_meta.date ) { %>
           <i class="iconfont icon-riqi2"></i>&nbsp;<%- date(post.date, config.date_format) %>&nbsp;&nbsp;
+        <% } %>
+        <% if(theme.index.post_meta.wordcount ) { %>
+        <i class="far fa-chart-bar"></i><%= wordcount(post.content) %>字&nbsp;&nbsp;
+        <i class="far fa-clock"></i><%= min2read(post.content) %>分钟&nbsp;&nbsp;
         <% } %>
         <% if(theme.index.post_meta.category && post.categories.length) { %>
           <i class="iconfont icon-inbox"></i>
@@ -53,5 +65,4 @@ page.banner_img_height = theme.index.banner_img_height
     </div>
   </div>
 <% }) %>
-
 <%- partial('_partial/paginator') %>

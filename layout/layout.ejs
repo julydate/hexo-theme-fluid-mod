@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="<%= config.language %>">
-
 <%
 var subtitle = page.subtitle || page.title
 var banner_img = page.banner_img || theme.index.banner_img
 var banner_img_height = page.banner_img_height || theme.index.banner_img_height
 %>
-
-<%- partial('_partial/head') %>
-
-<body>
+<%- partial('_partial/head', {banner_img: banner_img}) %>
+<body class="banner-bg">
+  <%- partial('_partial/sidebar') %>
   <header style="height: <%- banner_img_height %>vh;">
     <%- partial('_partial/nav') %>
-    <div class="view intro-2" id="background"
-         style="background: url('<%- banner_img %>')no-repeat center center;
-           background-size: cover;
-           background-attachment: <%- theme.banner_scroll == true ? 'scroll' : 'fixed' %>;">
+    <div class="view intro-2 rgba-black-slight" id="background">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               <% if(theme.fun_features.typing.enable == false) { %>
                 <%- subtitle %>
               <% } %>
             </span>
-
             <% if(is_post()) { %>
               <br>
-              <p class="mt-3"><%- full_date(page.date, theme.post.date_format) %></p>
+              <p class="mt-3">
+                <i class="far fa-calendar-alt"></i>
+                <span class="post-date"><%- full_date(page.date, theme.post.date_format) %>&nbsp;|&nbsp;</span>
+                <i class="far fa-chart-bar"></i>
+                <span class="post-count"><%= wordcount(page.content) %></span>字&nbsp;|&nbsp;
+                <i class="far fa-clock"></i>
+                <span class="post-count"><%= min2read(page.content) %></span>分钟
+                <% if(theme.post.pageview) { %>
+                  <span id="busuanzi_container_page_pv" style="display:none">
+                    &nbsp;|&nbsp;
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv"></span>次
+                  </span>
+                <% } %>
+              </p>
             <% } %>
           </div>
-
           <% if (theme.scroll_down_arrow.enable && theme.scroll_down_arrow.banner_height_limit <= banner_img_height) { %>
             <div class="scroll-down-bar">
               <i class="fa fa-angle-down scroll-down-arrow"></i>
@@ -40,16 +47,15 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
       </div>
     </div>
   </header>
-
-  <main>
+  <main id="mainContent" class="rgba-black-slight">
     <% if(is_post() || page.layout == '404') { %>
       <%- body %>
     <% } else { %>
-      <div class="container nopadding-md">
+      <div class="container nopadding-md" style="padding-top:0.5rem;padding-bottom:0.5rem;">
         <div class="py-5 z-depth-3" id="board">
           <% if(page.layout == 'about') { %>
             <div class="about-avatar">
-              <img src="<%- url_for(theme.about.avatar) %>"
+              <img src="<%- url_for(theme.avatar) %>"
                    class="img-fluid z-depth-1 rounded-circle"
                    alt="avatar">
             </div>
@@ -65,18 +71,21 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
       </div>
     <% } %>
   </main>
-
   <% if (theme.scroll_top_arrow.enable) { %>
     <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
       <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
     </a>
   <% } %>
-
   <% if(theme.search.enable) { %>
     <%- partial('_partial/search') %>
   <% } %>
-
   <%- partial('_partial/footer', { data: { 'subtitle': subtitle } }) %>
-
+  <% if(banner_img_height === 100 && theme.full_banner) { %>
+    <script type="text/javascript">
+      /* 页面 banner 覆盖全屏 */
+      $(".scroll-down-bar .scroll-down-arrow").css({"margin-top":"3rem"});
+      $("#board").css({"margin-top":"0"});
+    </script>
+  <% } %>
 </body>
 </html>

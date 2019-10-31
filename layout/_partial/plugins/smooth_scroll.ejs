@@ -1,0 +1,13 @@
+<% if (theme.smooth_scroll.enable) { %>
+  <%- js_ex(theme.static_prefix.smooth_scroll, "SmoothScroll.min.js") %>
+  <style type="text/css">
+    html, body{
+      scroll-behavior: smooth;
+    }
+    @media screen and (prefers-reduced-motion: reduce){
+      html, body{
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+<% } %>

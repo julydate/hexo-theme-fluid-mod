@@ -1,10 +1,8 @@
 <!-- SCRIPTS -->
-<%- js_ex(theme.static_prefix.jquery, "jquery.min.js") %>
 <%- js_ex(theme.static_prefix.popper, "popper.min.js") %>
 <%- js_ex(theme.static_prefix.bootstrap, "js/bootstrap.min.js") %>
 <%- js_ex(theme.static_prefix.mdbootstrap, "js/mdb.min.js") %>
 <%- js_ex(theme.static_prefix.internal_js, "main.js") %>
-
 <% if(theme.lazyload.enable){ %>
   <%- js_ex(theme.static_prefix.internal_js, "lazyload.js") %>
 <% } %>
@@ -14,80 +12,127 @@
   <% } %>
   <%- js_ex(theme.static_prefix.internal_js, "post.js") %>
 <% } %>
-<% if(theme.highlight.enable){ %>
-  <%- js_ex(theme.static_prefix.prettify, "/prettify.min.js") %>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  <%- config.highlight.line_number ? 'linenums' : '' %>');
-      prettyPrint();
-    })
-  </script>
-<% } %>
-
-<% if(theme.fun_features.typing.enable){ %>
-  <%- js_ex(theme.static_prefix.typed, "/typed.min.js") %>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "<%- data.subtitle %>&nbsp;",
-      ],
-      cursorChar: "<%- theme.fun_features.typing.cursorChar %>",
-      typeSpeed: <%- theme.fun_features.typing.typeSpeed %>,
-      loop: <%- theme.fun_features.typing.loop %>,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-<% } %>
-
-<% if(theme.fun_features.anchorjs.enable){ %>
-  <%- js_ex(theme.static_prefix.anchor, "/anchor.min.js") %>
-  <script>
-    anchors.options = {
-      placement: "<%- theme.fun_features.anchorjs.placement %>",
-      visible: "<%- theme.fun_features.anchorjs.visible %>",
-      <% if(theme.fun_features.anchorjs.icon != ""){ %>
-      icon: "<%- theme.fun_features.anchorjs.icon %>"
-      <% } %>
+<!-- Plugins -->
+<%- partial('_partial/plugins/prettify.ejs') %>
+<%- partial('_partial/plugins/typed.ejs') %>
+<%- partial('_partial/plugins/anchor.ejs') %>
+<%- partial('_partial/plugins/local-search.ejs') %>
+<%- partial('_partial/plugins/fancybox.ejs') %>
+<%- partial('_partial/plugins/math.ejs') %>
+<%- partial('_partial/plugins/smooth_scroll.ejs') %>
+<%- partial('_partial/plugins/random_img.ejs') %>
+<%- partial('_partial/plugins/hitokoto.ejs') %>
+<%- partial('_partial/plugins/busuanzi.ejs') %>
+<!-- Functions -->
+<script type="text/javascript">
+  /* 切换背景 */
+  <% if(theme.full_bg_img) { %>
+  $("#background").removeClass("banner-bg");
+  $("body").addClass("banner-bg");
+  var postToTopHight = $("#board").offset().top;
+  $(window).scroll(function () {
+    var bgDisplay = false;
+    var scrollHeight = document.body.scrollTop + document.documentElement.scrollTop;
+    bgDisplay = scrollHeight >= postToTopHight;
+    if(bgDisplay) {
+      $('#background').removeClass("rgba-black-slight");
+      $('#mainContent').removeClass("rgba-black-slight");
+      $('#footerContent').removeClass("rgba-black-slight");
+    } else {
+      $('#background').addClass("rgba-black-slight");
+      $('#mainContent').addClass("rgba-black-slight");
+      $('#footerContent').addClass("rgba-black-slight");
+    }
+  });
+  <% } else { %>
+    $("body").removeClass("banner-bg");
+    $("#background").addClass("banner-bg");
+    $('#mainContent').removeClass("rgba-black-slight");
+    $('#footerContent').removeClass("rgba-black-slight");
+    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) || (/Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent))) {
+      $("#background").css("background-attachment", "scroll");
+    }
+  <% } %>
+</script>
+<% if(theme.footer.date.enable) { %>
+  <script type="text/javascript">
+    /*显示博客运行时间*/
+    var blogRunTime = function () {
+      var runTime = document.getElementById("runtime");
+      var runtimeDate = "<%- theme.footer.date.create_date %>";
+	    var createDate = new Date(runtimeDate);
+	    var nowDate = new Date();
+	    var dateLine = nowDate.getTime() - createDate.getTime();
+	    var runDate = Math.floor(dateLine / (1000 * 60 * 60 * 24));
+	    runTime.innerHTML = runDate;
     };
-    var el = "<%- theme.fun_features.anchorjs.element || 'h1,h2,h3,h4,h5,h6' %>".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+    $(document).ready(function(){
+	    blogRunTime();
+    });
   </script>
 <% } %>
-
-<% if(theme.search.enable){ %>
-  <%- js_ex(theme.static_prefix.internal_js, "local-search.js") %>
-  <script>
-    var path = "<%- theme.search.path || '/local-search.xml' %>";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      getSearchFile(path);
-      this.onclick = null
-    }
+<% if(theme.fun_features.monitortext.enable) { %>
+  <script type="text/javascript">
+    /*窗口监视*/
+    var originalTitle = document.title;
+    window.onblur = function(){document.title = "<%- theme.fun_features.monitortext.text %>"};
+    window.onfocus = function(){document.title = originalTitle};
   </script>
 <% } %>
-
-<% if (is_post && theme.post.image_zoom.enable) { %>
-  <%- js_ex(theme.static_prefix.fancybox, "jquery.fancybox.min.js") %>
-  <script>
-    $('#post').find('img').each(
-      function () {
-        var _this = $(this);
-        var _src = _this.attr("src");
-        _this.wrap('<a data-fancybox="images" href="' + _src + '" ></a>');
+<% if(theme.fun_features.snow.enable) { %>
+  <script type="text/javascript">
+    /* 雪花效果 */
+    console.log('雪花效果 code by kvv.me');
+    ~function () {
+      function t() {
+          e.width = window.innerWidth,
+          e.height = window.innerHeight,
+          o = Math.round(window.innerWidth * window.innerHeight / 1e4)
       }
-    );
+      function n() {
+          var t = window.innerWidth
+            , d = window.innerHeight
+            , c = e.getContext("2d");
+          c.clearRect(0, 0, t, d),
+          c.fillStyle = "<%= theme.fun_features.snow.color %>",
+          c.beginPath(),
+          a += .01;
+          for (var u = 0; o > u; u++) {
+            var l = r[u];
+            if (!l) {
+              continue
+            }
+            ;c.moveTo(l.x, l.y),
+            c.arc(l.x, l.y, l.radius, 0, 2 * Math.PI, !0),
+            l.y += Math.cos(a) + l.radius / 2,
+            l.x += Math.sin(a * l.direction),
+            (l.x > t + 5 || -5 > l.x || l.y > d) && (u % 3 > 0 ? (r[u].x = Math.random() * t,
+            r[u].y = -10) : Math.sin(a * l.direction) > 0 ? (r[u].x = -5,
+            r[u].y = Math.random() * d) : (r[u].x = t + 5,
+            r[u].y = Math.random() * d))
+          }
+          c.fill(),
+          i(n)
+      }
+      var e = document.createElement("canvas")
+        , i = requestAnimationFrame || msRequestAnimationFrame || function(t) {
+          setTimeout(t, 16)
+        }
+      , a = 0
+      , o = 0
+      , r = [];
+      t(),
+      e.className = "snow",
+      document.body.appendChild(e);
+      for (var d = 0; o > d; d++)
+        r.push({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            radius: 4 * Math.random() + 1,
+            direction: 2 * Math.random() - .5
+        });
+      addEventListener("resize", t),
+      i(n)
+    }();
   </script>
-<% } %>
-
-<% if (theme.smooth_scroll.enable) { %>
-  <%- js_ex(theme.static_prefix.smooth_scroll, "smooth-scroll.min.js") %>
 <% } %>

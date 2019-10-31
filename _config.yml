@@ -2,8 +2,6 @@
 # Fluid
 # Author: Fluid-dev organization
 # Github: https://github.com/fluid-dev/hexo-theme-fluid
-#
-# 本配置的详细指南请见：https://fluid-dev.github.io/hexo-fluid-docs/guide/
 #---------------------------
 
 
@@ -11,6 +9,8 @@
 # 全局
 # Site
 #---------------------------
+avatar: /img/head.jpg # 头像
+
 favicon: /img/favicon.png # 网站标签页的 icon
 
 apple_touch_icon: /img/apple-touch-icon.png # 用于苹果设备的 icon
@@ -19,6 +19,7 @@ title_join_string: ' ~ '  # 浏览器标签页中的标题分隔符，效果： 
 
 highlight: # 代码高亮
   enable: true
+  line_number: true # 显示代码行号
   theme: tomorrow-night-eighties # available: github-v2 | tomorrow | tomorrow-night | tomorrow-night-eighties，更多主题可从 https://jmblog.github.io/color-themes-for-google-code-prettify/ 获取，保存为 `*.min.css` 到 `source/lib/prettify/`，在其中 .prettyprint{ background: ***; ...} 的background 值后加上 !important，例如：.prettyprint{background:#fafbfc!important; ...}
 
 fun_features: # 一些好玩的功能
@@ -33,25 +34,67 @@ fun_features: # 一些好玩的功能
     placement: right # icon放置的位置： left | right
     visible: false # true：一直可见，false：鼠标悬停时出现
     icon: "" # 例如：§ | # | ❡ 等，留空则为默认效果
+  monitortext:
+    enable: true
+    text: 你不爱我了QAQ
+  snow: 
+    enable: true # 是否开启背景飘雪效果
+    color: rgba(255, 255, 255, 0.7) # 雪花颜色
 
 color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdesignrankings.com/resources/lolcolors/
   body_bg_color: "#eee"
-  navbar_bg_color: "#2f4154"
+  navbar_bg_color: "#fc9d9a" #2f4154
   navbar_text_color: "white"
   text_color: "#3c4858"
   link_color: "#3c4858"
-  link_hover_color: "#1abc9c"
+  link_hover_color: "#fe4365" #1abc9c
+  tocbot_link_shadow: "0.1em 0.1em 0.2em #ffffff"
+  tocbot_active_link_shadow: "0.1em 0.1em 0.2em #ffbcbc"
+  sidebar_text_color: "#3c4858"
+  sidebar_background_color: "rgba(246, 248, 250, 0.82)" #f6f8fad1
+  sidebar_button_color: "#99a9bf"
+  sidebar_button_shift_color: "#ffffff"
+  sidebar_button_shift_shadow: "0.1rem 0.1rem 0.5rem #3e3e3e"
+  sidebar_about_link_color: "#3c4858"
+  sidebar_about_link_hover_color: "#fe4365"
+  sidebar_avatar_border: "5px solid #ffffff"
+  sidebar_subtitle_color: "#999999"
+  sidebar_friend_title: "#ffffff"
+  sidebar_friend_title_background: "#fe91b4"
+  sidebar_friend_link: "#3c4858"
+  sidebar_friend_link_hover: "#ffffff"
+  sidebar_friend_li_border: "1px dashed #bdbdbd"
+  sidebar_friend_li_hover: "#fe91b4"
+  sidebar_friend_ico: "#bfbfbf"
+  footer_color: "#ffffff"
+  footer_shadow: "0.1rem 0.1rem 0.5rem white"
+  footer_a_color: "#ffffff"
+  footer_a_hover_color: "#fe4365"
+  footer_theme_a_color: "#fc9d9a"
+  footer_theme_a_shadow: "0.1rem 0.1rem 0.2rem #fe4365"
+  footer_icon_color: "#fc9d9a"
+  footer_icon_shadow: "0.1rem 0.1rem 0.5rem #ffffff"
+  scrollbar_color: "#fec9c9"
+  scrollbar_thumb_color: "#fe4365"
 
-baidu_analytics:  # 百度统计的Key
-google_analytics:  # 谷歌统计的ID，如 UA-XXXXX-Y，注意使用谷歌统计可能会影响国内访问博客
-
-lazyload: # 对页面中的图片进行懒加载处理，可见范围外的图片不会加载
+web_analytics:  # 网页统计代码
   enable: true
-  onlypost: false  # 仅在文章页使用懒加载
+  baidu: # 百度统计的Key，留空则不启用
+  tencent:  # 腾讯统计的H5 App id，参见 https://mta.qq.com/h5/manage/ctr_app_manage
+  woyaola:  # 51.la站点统计ID，参见 https://www.51.la/user/site/index
+  cnzz: # 友盟/cnzz站点统计web_id，参见 https://web.umeng.com/main.php?c=site&a=show
+  google: # Google统计的Tracking ID，参见 https://analytics.google.com/analytics/web/
+
+lazyload: # 对页面中的图片进行懒加载处理，未在视口的图片不会加载
+  enable: true
+  onlypost: true
+  
+fancybox: # 文章图片灯箱
+  enable: true
 
 smooth_scroll: # 平滑滚动效果
-  enable: true
-
+  enable: false
+  
 
 #---------------------------
 # 页头
@@ -77,6 +120,8 @@ scroll_down_arrow:  # 向下滚动的箭头
   banner_height_limit: 90  # 头图高度不小于指定比例，才显示箭头
   scroll_after_turning_page: true  # 翻页后自动滚动
 
+full_banner: true # 头图和页面头部是否占满全屏，开启需同时设置对应页面 banner_img_height 为100
+full_bg_img: true # 头图是否铺满全屏
 banner_scroll: false  # 头图是否跟随页面滚动
 
 #---------------------------
@@ -84,11 +129,25 @@ banner_scroll: false  # 头图是否跟随页面滚动
 # Footer
 #---------------------------
 footer:
+  show_copyright: true # 显示博客版权信息
+  date:  # 显示博客运行时间
+    enable: false
+    create_date: 2015,04,20 # 博客创立时间，格式如 2015,04,20
+    text: 萌萌哒%d天啦 # 要显示的文字，%d 是指日期数，不要漏掉
+  site_pv:
+    enable: true # 是否显示本站总访问量
+    text: 被瞅了%d次 # %d 是指访问数量
+    offset:  # 总访问量数值修正，不清楚请留空
+  site_uv:
+    enable: true # 是否显示本站访客数
+    text: 被%d人看爆
+    offset:  # 访客数数值修正，不清楚请留空
   beian:  # The footer of China's website policy, other areas keep disable
     enable: false
     icp_text: 京ICP证123456号 # ICP证号
     police_text: 京公网安备12345678号 # 公安备案号，不填则只显示ICP
     police_code: 12345678 # 公安备案的编号，用于URL跳转查询
+  hitokoto: true # 显示一言，关于一言：https://hitokoto.cn/
 
 scroll_top_arrow:  # 向顶部滚动的箭头
   enable: true
@@ -106,10 +165,16 @@ index:
   auto_excerpt:
     enable: true
   post_url_target: _self  # available: _blank | _self
-  post_meta: # 是否显示文章信息（时间、分类、标签）
+  post_meta: # 是否显示文章信息（时间、字数、分类、标签）
     date: true
+    wordcount: true
     category: true
     tag: true
+  post_img: 
+    enable: true # 是否显示首页文章列表图片
+    default: /img/default.png # 首页文章列表默认图片
+    random: true # 是否开启文章列表随机图片，具体参见：https://www.xjh.me/3069.html?replytocom=4888
+    ctype:   # 可选 random,auto,acg,nature ，auto 为不指定 ctype，random 为在两种 ctype 中随机，留空则不限制图片类型为 bg
 
 
 #---------------------------
@@ -119,7 +184,8 @@ index:
 post:
   banner_img: /img/default.png
   banner_img_height: 70  # available: 0 - 100
-  date_format: "dddd, MMMM Do YYYY, h:mm a"
+  date_format: "YYYY-MM-DD"
+  pageview: true # 是否显示访问统计，参见 https://busuanzi.ibruce.info/
   toc:  # 右侧导航条
     enable: true
   copyright:  # 版权声明
@@ -128,11 +194,14 @@ post:
   custom:  # 文章底部自定义内容
     enable: false
     content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定义区域，支持 HTML，可自行插入赞赏码、公众号二维码等内容
-  comments:  # 评论
-    enable: false  # 开启评论
-    type: disqus  # 指定使用的评论模块  available: disqus | valine | gitalk | utterances
-  image_zoom:  # 文章图片可点击放大
-    enable: true
+  comments:
+    enable: false
+    type: disqus  # available: disqus | valine | gitalk | utterances
+  math:  # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见 https://fluid-dev.github.io/hexo-fluid-docs/guide/#数学公式
+    enable: false
+    specific: false  # 开启后，只有在文章 Front-matter 里指定 `math: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
+    engine: mathjax  # 公式引擎  available: mathjax | katex
+
 
 #---------------------------
 # 评论
@@ -182,7 +251,6 @@ valine:
   placeholder: 说点什么 # comment box placeholder
   avatar: retro # gravatar style https://valine.js.org/avatar.html
   pageSize: 10 # pagination size
-  visitor: false # leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html
 
 
 #---------------------------
@@ -226,14 +294,12 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/a
   md_path: ./pages/about.md  # 关于页文档的相对路径，可以按相对文档设置主题之外的路径，从而避免更新冲突
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
-  avatar: /img/avatar.png # 头像
   name: myname
   introduce: info / info / info # 支持 HTML
   icons: # 更多图标可从 https://fontawesome.com/icons 查找，并以 "图标名: url" 的格式添加在下方
     "fab fa-github": https://github.com
     "fab fa-twitter": https://twitter.com
-    "fab fa-weixin":  # 微信图标，这个是特殊图标，点击不会跳转而是悬浮二维码，所以链接需要对应二维码图片地址
-
+    "fas fa-envelope": mailto:example@example.com
 
 #---------------------------
 # 404页
@@ -243,3 +309,24 @@ page404:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
   subtitle: 'Page not found'
+
+#---------------------------
+# 侧边栏
+# Sidebar
+#---------------------------
+sidebar:
+    enable: true
+    name:  # 名字，留空则使用网站title
+    introduce:  # 支持 HTML，留空则使用网站subtitle
+    icons: # 更多图标可从 https://fontawesome.com/icons 查找，并以 "图标名: url" 的格式添加在下方
+        "fab fa-github": https://github.com
+        "fab fa-twitter": https://twitter.com
+        "fas fa-envelope": mailto:example@example.com
+
+
+#---------------------------
+# 友链
+# Friends
+#---------------------------    
+friends: 
+  friendname: https://example.com/

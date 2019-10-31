@@ -33,17 +33,17 @@ internal_img: /img
 # Third-party library
 #---------------------------
 
-anchor: /lib/anchor
+anchor: /lib/anchor # 推荐 https://cdn.staticfile.org/anchor-js/4.2.0/
 
-font_awesome: /lib/font-awesome
+font_awesome: /lib/font-awesome # 推荐 https://cdn.staticfile.org/font-awesome/5.10.0/
 
-github_markdown: /lib/github-markdown
+github_markdown: /lib/github-markdown # 推荐 https://cdn.staticfile.org/github-markdown-css/3.0.1/
 
-jquery: /lib/jquery
+jquery: /lib/jquery # 推荐 https://cdn.staticfile.org/jquery/3.4.1/
 
-bootstrap: /lib/bootstrap
+bootstrap: /lib/bootstrap # 推荐 https://cdn.staticfile.org/twitter-bootstrap/4.3.1/
 
-mdbootstrap: /lib/mdbootstrap
+mdbootstrap: /lib/mdbootstrap # 推荐 https://cdn.staticfile.org/mdbootstrap/4.8.7/
 
 # umd
 popper: /lib/popper
@@ -53,10 +53,14 @@ prettify: /lib/prettify
 # the path of highlight theme, only support `min.css` file，filename need to be the same as _config.highlight.theme
 prettify_theme: /lib/prettify
 
-tocbot: /lib/tocbot
+tocbot: /lib/tocbot # 推荐 https://cdn.staticfile.org/tocbot/4.8.1/
 
-typed: /lib/typed
+typed: /lib/typed # 推荐 https://cdn.staticfile.org/typed.js/2.0.9/
 
-fancybox: /lib/fancybox
+fancybox: /lib/fancybox # 推荐 https://cdn.staticfile.org/fancybox/3.5.7/
 
-smooth_scroll: /lib/smooth-scroll
+smooth_scroll: /lib/smooth-scroll # 推荐 https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.10/
+
+mathjax: https://cdn.staticfile.org/mathjax/2.7.6/ # /lib/mathjax
+
+katex: /lib/katex # 推荐 https://cdn.staticfile.org/KaTeX/0.11.1/

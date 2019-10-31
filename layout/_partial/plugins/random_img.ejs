@@ -1,0 +1,29 @@
+<% if(theme.index.post_img.enable && theme.index.post_img.random) { %>
+  <script type="text/javascript">
+    /* 首页文章列表随机图片 */
+    $("img.image_random").each(function(){
+      <% if(theme.index.post_img.ctype) { %>
+        <% if(theme.index.post_img.ctype === "random") { %>
+          var ctypeAll = ["acg","nature"];
+          var ctype = ctypeAll[Math.floor(Math.random() * ctypeAll.length)];
+          var xjhUrl = "//img.xjh.me/random_img.php?return=json&type=bg&ctype=" + ctype;
+        <% } else if(theme.index.post_img.ctype === "auto") { %>
+          var xjhUrl = "//img.xjh.me/random_img.php?return=json&type=bg;
+        <% } else { %>
+          var ctype = <%= theme.index.post_img.ctype %>;
+          var xjhUrl = "//img.xjh.me/random_img.php?return=json&type=bg&ctype=" + ctype;
+        <% } %>
+      <% } else { %>
+        var xjhUrl = "//img.xjh.me/random_img.php?return=json";
+      <% } %>
+      var _this = $(this);
+      $.get(xjhUrl,function(data,status){
+        if(status === "success"){
+          if(data.result === 200){
+            _this[0].src = data.img;
+          }
+        }
+      });
+    });
+  </script>
+  <% } %>

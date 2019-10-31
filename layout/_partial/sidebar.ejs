@@ -1,0 +1,39 @@
+<% if(theme.sidebar.enable){ %>
+<div id="sidebar" class="sidebar-hide">
+  <span class="sidebar-button sidebar-button-shift" id="toggle-sidebar" >
+    <i class="fa fa-arrow-right on" aria-hidden="true"></i>
+  </span>
+  <div class="sidebar-overlay"></div>
+  <div class="sidebar-intrude">
+    <div class="sidebar-avatar">
+      <img src="<%- url_for(theme.avatar) %>" srcset="<%- url_for(theme.avatar) %>" alt="avatar"/>
+    </div>
+    <div class="text-center sidebar-about">
+      <p class="h3 sidebar-author"><%= theme.sidebar.name || config.title %></p>
+      <p class="sidebar-subtitle"><%- theme.sidebar.introduce || config.subtitle %></p>
+      <% for(var i in theme.sidebar.icons) { %>
+        <a href="<%- theme.sidebar.icons[i] %>" class="h4" target="_blank">
+          <i class="<%- i %>" aria-hidden="true"></i>
+        </a>
+        &nbsp;&nbsp;
+      <% } %>
+    </div>
+    <div class="sidebar-friend">
+      <p class="h6 sidebar-friend-title">
+        <span class="sidebar-label-left"><i class="fas fa-user-friends"></i></span>
+        <span class="sidebar-label">友情链接</span>
+      </p>
+      <ul class="list-group">
+        <% for(var i in theme.friends) { %>
+          <a href="<%- theme.friends[i] %>" target="_blank">
+            <li class="list-group-item">
+              <i class="fas fa-quote-left"></i>&nbsp;
+              <%- i %>
+            </li>
+          </a>
+        <% } %>
+    </ul>
+    </div>
+  </div>
+</div>
+<% } %>

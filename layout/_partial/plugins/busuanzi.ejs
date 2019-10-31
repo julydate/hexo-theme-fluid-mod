@@ -1,0 +1,32 @@
+<% if(theme.post.pageview || theme.footer.site_pv.enable || theme.footer.site_uv.enable) { %>
+  <%- js_async("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js") %>
+  <% if(theme.footer.site_pv.offset || theme.footer.site_uv.offset) { %>
+    <script>
+      /* 不蒜子计数初始值纠正 */
+      $(document).ready(function() {
+        var busuanziPvOffset = 0;
+        var busuanziUvOffset = 0;
+        <% if(theme.footer.site_pv.offset){ %>
+          busuanziPvOffset = parseInt(<%= theme.footer.site_pv.offset %>);
+        <% } %>
+        <% if(theme.footer.site_uv.offset){ %>
+          busuanziUvOffset = parseInt(<%= theme.footer.site_uv.offset %>);
+        <% } %>
+        if(busuanziPvOffset !== 0) var intPv = setInterval(function(){fixPvCount(intPv, busuanziPvOffset)}, 100);
+        if(busuanziUvOffset !== 0) var intUv = setInterval(function(){fixUvCount(intUv, busuanziUvOffset)}, 100);
+        function fixPvCount(int, offset) {
+          if ($("#busuanzi_container_site_pv").css("display") !== "none") {
+            clearInterval(int);
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + offset);
+          }
+        }
+        function fixUvCount(int, offset) {
+          if ($("#busuanzi_container_site_uv").css("display") != "none") {
+            clearInterval(int);
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + offset);
+          }
+        }
+      });
+    </script>
+  <% } %>
+<% } %>

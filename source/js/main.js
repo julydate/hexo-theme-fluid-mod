@@ -10,8 +10,9 @@ function scrollToBoard() {
   scrollToElement('#board', -$("#navbar").height());
 }
 
+
 $(document).ready(function () {
-  // 顶部菜单的动效
+  /* 顶部菜单的动效 */
   var navbar = $("#navbar");
   if (navbar.offset().top > 0) {
     navbar.addClass("navbar-custom");
@@ -30,14 +31,15 @@ $(document).ready(function () {
     $('#navbar').toggleClass('navbar-col-show');
   });
 
-  // 向下滚动箭头的点击
+
+  /* 向下滚动箭头的点击 */
   $(".scroll-down-bar").on("click", scrollToBoard);
 
-  // 向顶部滚动箭头
+  /* 向顶部滚动箭头 */
   var topArrow = $("#scroll-top-button");
   var posDisplay = false;
   var scrollDisplay = false;
-  // 位置
+  /* 位置 */
   var setTopArrowPos = function () {
     var boardRight = document.getElementById('board').getClientRects()[0].right;
     var bodyWidth = document.body.offsetWidth;
@@ -50,7 +52,7 @@ $(document).ready(function () {
   };
   setTopArrowPos();
   $(window).resize(setTopArrowPos);
-  // 显示
+  /* 显示 */
   var headerHeight = $("#board").offset().top;
   $(window).scroll(function () {
     var scrollHeight = document.body.scrollTop + document.documentElement.scrollTop;
@@ -59,16 +61,25 @@ $(document).ready(function () {
       "bottom": posDisplay && scrollDisplay ? "20px" : "-60px"
     });
   });
-  // 点击
+  /* 点击 */
   topArrow.on("click", function () {
     $("body,html").animate({
       scrollTop: 0,
       easing: 'swing'
     })
   });
-
-  // 因兼容问题，在 iOS 和 Safari 环境下不使用固定 Banner
-  if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) || (/Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent))) {
-    $("#background").css("background-attachment", "scroll");
-  }
 });
+
+/* Sidebar */
+var toggleSidebar = function(){
+  $("#sidebar").toggleClass('sidebar-hide');
+  $("#toggle-sidebar").toggleClass('sidebar-button-shift');
+}
+var hideSidebar = function(){
+  $("#sidebar").addClass('sidebar-hide');
+  $("#toggle-sidebar").addClass('sidebar-button-shift');
+}
+$("#toggle-sidebar").on("click",toggleSidebar);
+$("header").on("click",hideSidebar);
+$("#mainContent").on("click",hideSidebar);
+$("#footerContent").on("click",hideSidebar);
