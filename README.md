@@ -1,12 +1,12 @@
-<p align="right">中文简体 | <a title="English" href="README_en.md">English</a></p>
-<p align="center">
-  <img alt="Fluid Mod Logo" src="https://ae01.alicdn.com/kf/Ud9fd94836eb246819bfb84538b11dd77U.jpg" width="128">
-</p>
 
-<p align="center">一款 Material Design 风格的主题</p>
-<p align="center">Hexo Fluid 主题 UI 修改版</p>
+
+# Hexo Fluid 主题 UI 修改版
 
 ![snipaste_fluid.png](https://ae01.alicdn.com/kf/U81d7d60459dd4ed484d28e5f99e933e2F.png)
+
+## 原主题
+
+[hexo-theme-fluid]( https://github.com/fluid-dev/hexo-theme-fluid/)
 
 ## 示例
 
@@ -25,7 +25,7 @@
 1. 更多的主题颜色自定义
 2. 更全面的网页统计
 3. 侧边栏功能，显示基本信息和友链
-4. 背景图可选全屏，背景飘雪效果
+4. 背景图可选全屏，背景飘雪效果，可选随机背景图
 5. 首页文章列表可开关图片显示，可选显示随机图片
 6. 文章显示字数统计，显示访问统计
 7. 文章页图片灯箱效果
@@ -104,8 +104,6 @@ highlight:
 - 请检查配置文件是否符合 yml 语法，如冒号后需要有空格，缩进需要 2 个空格等
 
 ## 其他信息参考原主题文档
-
-[原主题]( https://github.com/fluid-dev/hexo-theme-fluid/)
 
 [详细配置](https://fluid-dev.github.io/hexo-fluid-docs/)
 

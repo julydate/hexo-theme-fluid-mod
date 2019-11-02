@@ -1,6 +1,6 @@
 <% if(theme.index.post_img.enable && theme.index.post_img.random) { %>
+  <!-- 首页文章列表随机图片 -->
   <script type="text/javascript">
-    /* 首页文章列表随机图片 */
     $("img.image_random").each(function(){
       <% if(theme.index.post_img.ctype) { %>
         <% if(theme.index.post_img.ctype === "random") { %>
@@ -26,4 +26,108 @@
       });
     });
   </script>
+<% } %>
+<% if(theme.random_bg.enable) { %>
+  <!-- 随机背景 -->
+  <%- js_ex(theme.static_prefix.backstretch, "/jquery.backstretch.min.js") %>
+  <% if(theme.random_bg.type === "online") { %>
+    <!-- 在线随机背景 -->
+    <script type="text/javascript">
+      !function(){
+        <% if(theme.random_bg.ctype) { %>
+          <% if(theme.random_bg.ctype === "random") { %>
+            var ctypeAll = ["acg","nature"];
+            var ctype = ctypeAll[Math.floor(Math.random() * ctypeAll.length)];
+            var xjhUrl = "//img.xjh.me/random_img.php?return=json&type=bg&ctype=" + ctype;
+          <% } else if(theme.random_bg.ctype === "auto") { %>
+            var xjhUrl = "//img.xjh.me/random_img.php?return=json&type=bg;
+          <% } else { %>
+            var ctype = <%= theme.random_bg.ctype %>;
+            var xjhUrl = "//img.xjh.me/random_img.php?return=json&type=bg&ctype=" + ctype;
+          <% } %>
+        <% } else { %>
+          var xjhUrl = "//img.xjh.me/random_img.php?return=json";
+        <% } %>
+        /* 首次图片请求 */
+        $.ajax({
+          url: xjhUrl,
+          type: "get",
+          dataType: "json",
+          cache: true,
+          success: function(data) {
+            if (data.result === 200) {
+              /* 请求成功替换背景并调用递归函数 */
+              $(".banner-bg").backstretch(data.img);
+              shiftBackground(0, <%= theme.random_bg.num %>, 0, data.img, [], xjhUrl);
+            } else {
+              /* 请求失败直接替换背景 */
+              $(".banner-bg").backstretch("<%= page.banner_img || theme.index.banner_img %>");
+            }
+          },
+          error: function(xhr) {
+            /* 请求失败直接替换背景 */
+            $(".banner-bg").backstretch("<%= page.banner_img || theme.index.banner_img %>");
+          }
+        });
+        var shiftBackground = function(i, num, j, imgUrl, imgUrls, xjhUrl) {
+          /* 判断请求次数 */
+          if (i < num - 1) {
+            imgUrls[j] = imgUrl;
+            i++;
+            $.ajax({
+              url: xjhUrl,
+              type: "get",
+              dataType: "json",
+              cache: true,
+              success: function(data) {
+                if (data.result === 200) {
+                  /* 请求成功更新图片数组下一个值 */
+                  j++;
+                  shiftBackground(i, num, j, data.img, imgUrls, xjhUrl);
+                } else {
+                  /* 请求失败不更新图片数组 */
+                shiftBackground(i, num, j, imgUrl, imgUrls, xjhUrl);
+                }
+              },
+              error: function(xhr) {
+                /* 请求失败不更新图片数组 */
+                shiftBackground(i, num, j, imgUrl, imgUrls, xjhUrl);
+              }
+            });
+          } else {
+            /* 最后一次不再进行请求，执行更换背景函数并跳出递归 */
+            imgUrls[j] = imgUrl;
+            $(".banner-bg").backstretch(imgUrls, {
+              duration: <%= theme.random_bg.time %> * 1000,
+              fade: <%= theme.random_bg.fade %> * 1000,
+              animateFirst: false
+            });
+            return;
+          }
+        };
+      }();
+    </script>
   <% } %>
+  <% if(theme.random_bg.type === "local") { %>
+    <!-- 本地随机背景 -->
+    <script type="text/javascript">
+      !function(){
+        var random_bg_string = "<% for(const i in theme.random_bg.url) { %><% var link = theme.random_bg.url[i] %><% if (!link) continue %><%= link %>,<% } %>";
+        /* 去除图片链接组末尾逗号并转换为数组 */
+        random_bg_string = random_bg_string.substring(0,random_bg_string.length-1);
+        var random_bg_array = random_bg_string.split(",");
+        /* 首张图片随机 */
+        var n = Math.floor(Math.random() * random_bg_array.length);
+        $(".banner-bg").backstretch(
+          random_bg_array,
+          {
+            duration: <%= theme.random_bg.time %> * 1000,
+            fade: <%= theme.random_bg.fade %> * 1000,
+            start: n,
+            animateFirst: false
+          }
+        );
+      }();
+    </script>
+  <% } %>
+<% } %>

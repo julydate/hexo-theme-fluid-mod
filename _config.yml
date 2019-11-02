@@ -123,6 +123,23 @@ scroll_down_arrow:  # 向下滚动的箭头
 full_banner: true # 头图和页面头部是否占满全屏，开启需同时设置对应页面 banner_img_height 为100
 full_bg_img: true # 头图是否铺满全屏
 banner_scroll: false  # 头图是否跟随页面滚动
+random_bg:
+  enable: false # 是否开启随机背景
+  time: 20 # 随机背景轮换时间，单位为秒
+  fade: 2  # 随机背景渐变时间，单位为秒
+  type: local # 随机背景类型，可选 online,local ，online 为在线随机背景，local为自定义随机背景
+  ctype: auto # 可选 random,auto,acg,nature ，auto 为不指定 ctype，random 为在两种 ctype 中随机，留空则不限制图片类型为 bg，具体参见：https://www.xjh.me/3069.html?replytocom=4888
+  num: 3 # 在线随机背景个数，请不要设置太大
+  url: # 自定义随机背景地址（可以为相对链接），上方 type 为 local 时填写，每行一个链接，前面的数值编号可以随便填但不要重复
+    1: http://img.xjh.me/desktop/bg/acg/64082849_p0.jpg
+    2: http://img.xjh.me/desktop/bg/acg/63946708_p0.jpg
+    3: http://img.xjh.me/desktop/bg/acg/59756207_p0.jpg
+    4: http://img.xjh.me/desktop/bg/acg/63374320_p0.jpg
+    5: http://img.xjh.me/desktop/bg/nature/59190594_p0.jpg
+    6: http://img.xjh.me/desktop/bg/acg/63093148_p0.jpg
+    7: http://img.xjh.me/desktop/bg/acg/62494753_p0.jpg
+    8: http://img.xjh.me/desktop/bg/acg/61749296_p0.jpg
+
 
 #---------------------------
 # 页脚

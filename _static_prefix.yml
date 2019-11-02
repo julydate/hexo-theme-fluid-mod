@@ -64,3 +64,5 @@ smooth_scroll: /lib/smooth-scroll # 推荐 https://cdn.jsdelivr.net/npm/smoothsc
 mathjax: https://cdn.staticfile.org/mathjax/2.7.6/ # /lib/mathjax
 
 katex: /lib/katex # 推荐 https://cdn.staticfile.org/KaTeX/0.11.1/
+
+backstretch: /lib/backstretch # 推荐 https://cdn.staticfile.org/danielgindi-jquery-backstretch/2.1.15/

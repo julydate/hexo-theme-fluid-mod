@@ -19,7 +19,10 @@ if (page.title) {
   <%- partial('_partial/css.ejs') %>
   <style type="text/css">
     .banner-bg {
-      background: url('<%- banner_img %>') center center;
+      <% if(!theme.random_bg.enable){ %>
+        background-image: url('<%- banner_img %>');
+      <% } %>
+      background-position: center;
       background-repeat: repeat-y;
       background-size: cover;
       background-attachment: <%- theme.banner_scroll == true ? 'scroll' : 'fixed' %>;
