@@ -37,7 +37,7 @@ page.banner_img_height = theme.post.banner_img_height
             <% if(theme.post.copyright.enable) { %>
               <div id="post-note">
                 <div><strong>本文作者：</strong><a href="<%- url_for() %>"><%- theme.about.name || config.author || config.title %></a></div>
-                <div><strong>本文链接：</strong><a href="<%- full_url_for(page.path) %>"><%- full_url_for(page.path) %></div>
+                <div><strong>本文链接：</strong><a href="<%- full_url_for(page.path) %>"><%- full_url_for(page.path) %></a></div>
                 <div><strong>版权声明：</strong><%- theme.post.copyright.content %></div>
               </div>
             <% } %>
