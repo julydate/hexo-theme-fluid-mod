@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="Hexo-Theme-Fluid-Mod">
+  <meta name="author" content="Julydate">
+  <meta name="keywords" content="-&#34;hexo,theme,fluid,mod,修改版,主题,hexo主题&#34;">
+  <title>页面走丢啦~ ~ Fluid修改版</title>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+<script src="/lib/jquery/jquery.min.js" ></script>
+  <style type="text/css">
+    .banner-bg {
+      
+      background-position: center;
+      background-repeat: repeat-y;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+
+<body class="banner-bg">
+  
+<div id="sidebar" class="sidebar-hide">
+  <span class="sidebar-button sidebar-button-shift" id="toggle-sidebar" >
+    <i class="fa fa-arrow-right on" aria-hidden="true"></i>
+  </span>
+  <div class="sidebar-overlay"></div>
+  <div class="sidebar-intrude">
+    <div class="sidebar-avatar">
+      <img src="/img/head.jpg" srcset="/img/head.jpg" alt="avatar"/>
+    </div>
+    <div class="text-center sidebar-about">
+      <p class="h3 sidebar-author">Fluid修改版</p>
+      <p class="sidebar-subtitle">Hexo-Theme-Fluid-Mod</p>
+      
+        <a href="https://github.com/qixa/hexo-theme-fluid-mod" class="h4" target="_blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        &nbsp;&nbsp;
+      
+        <a href="https://twitter.com" class="h4" target="_blank">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+        &nbsp;&nbsp;
+      
+        <a href="https://weibo.com" class="h4" target="_blank">
+          <i class="fab fa-weibo" aria-hidden="true"></i>
+        </a>
+        &nbsp;&nbsp;
+      
+        <a href="mailto:example@example.com" class="h4" target="_blank">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+        &nbsp;&nbsp;
+      
+    </div>
+    <div class="sidebar-friend">
+      <p class="h6 sidebar-friend-title">
+        <span class="sidebar-label-left"><i class="fas fa-user-friends"></i></span>
+        <span class="sidebar-label">友情链接</span>
+      </p>
+      <ul class="list-group">
+        
+          <a href="https:/www.julydate.com/" target="_blank">
+            <li class="list-group-item">
+              <i class="fas fa-quote-left"></i>&nbsp;
+              Julydate
+            </li>
+          </a>
+        
+    </ul>
+    </div>
+  </div>
+</div>
+
+
+  <header style="height: 80vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid修改版</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">主页</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2 rgba-black-slight" id="background">
+      <div class="full-bg-img">
+        <div class="mask flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+            
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="mainContent" class="rgba-black-slight">
+    
+      
+
+<script type="text/javascript">
+  function redirect() {
+    location.href = "/";
+  }
+  /* setTimeout(redirect, 3000) */
+  $(document).ready(function(){
+    $(".footer-hitokoto").hide();
+    $(".footer-siteview").hide();
+    $(".footer-beian").hide();
+    $('#background').removeClass("rgba-black-slight");
+    $('#mainContent').removeClass("rgba-black-slight");
+    $('#footerContent').removeClass("rgba-black-slight");
+  });
+</script>
+    
+  </main>
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <div id="footerContent"  class="rgba-black-slight">
+<footer class="pt-5">
+  <div class="text-center py-3">
+    <div class="footer-theme">
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener noreferrer">Hexo</a> theme <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener noreferrer">Fluid</a> mod by <a href="https://github.com/julydate/hexo-theme-fluid-mod" target="_blank" rel="nofollow noopener noreferrer">Julydate</a>
+    </div>
+
+    
+      <div class="footer-copyright">
+        
+          ©2019&nbsp;Julydate
+        
+        
+      </div>
+    
+
+    
+      <div class="footer-siteview">
+        
+          <!-- 不蒜子统计PV -->
+          <span id="busuanzi_container_site_pv" style="display:none">
+              被瞅了<span id="busuanzi_value_site_pv"></span>次
+          </span>
+        
+        
+          <!-- 不蒜子统计UV -->
+          <span id="busuanzi_container_site_uv" style="display:none">
+            |
+            被<span id="busuanzi_value_site_uv"></span>人看爆
+          </span>
+        
+      </div>
+    
+
+    
+
+    
+      <!-- 一言 -->
+      <div class="footer-hitokoto">
+        <a id="hitokotoa" href="#" target="_blank" rel="nofollow noopener noreferrer">
+          <span id="hitokoto"></span>
+        </a>
+      </div>
+    
+    
+  </div>
+</footer>
+</div>
+<!-- SCRIPTS -->
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+  <script src="/js/lazyload.js" ></script>
+
+
+<!-- Plugins -->
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script type="text/javascript">
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Page not found&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script type="text/javascript">
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+  <script src="/js/local-search.js" ></script>
+  <script type="text/javascript">
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+
+
+  <!-- 首页文章列表随机图片 -->
+  <script type="text/javascript">
+    $("img.image_random").each(function(){
+      
+        var xjhUrl = "//img.xjh.me/random_img.php?return=json";
+      
+      var _this = $(this);
+      $.get(xjhUrl,function(data,status){
+        if(status === "success"){
+          if(data.result === 200){
+            _this[0].src = data.img;
+          }
+        }
+      });
+    });
+  </script>
+
+
+  <!-- 随机背景 -->
+  <script src="/lib/backstretch/jquery.backstretch.min.js" ></script>
+  
+  
+    <!-- 本地随机背景 -->
+    <script type="text/javascript">
+      !function(){
+        var random_bg_string = "http://img.xjh.me/desktop/bg/acg/64082849_p0.jpg,http://img.xjh.me/desktop/bg/acg/63946708_p0.jpg,http://img.xjh.me/desktop/bg/acg/59756207_p0.jpg,http://img.xjh.me/desktop/bg/acg/63374320_p0.jpg,http://img.xjh.me/desktop/bg/nature/59190594_p0.jpg,http://img.xjh.me/desktop/bg/acg/63093148_p0.jpg,http://img.xjh.me/desktop/bg/acg/62494753_p0.jpg,http://img.xjh.me/desktop/bg/acg/61749296_p0.jpg,";
+        /* 去除图片链接组末尾逗号并转换为数组 */
+        random_bg_string = random_bg_string.substring(0,random_bg_string.length-1);
+        var random_bg_array = random_bg_string.split(",");
+        /* 首张图片随机 */
+        var n = Math.floor(Math.random() * random_bg_array.length);
+        $(".banner-bg").backstretch(
+          random_bg_array,
+          {
+            duration: 20 * 1000,
+            fade: 2 * 1000,
+            start: n,
+            animateFirst: false
+          }
+        );
+      }();
+    </script>
+  
+
+
+  <script type="text/javascript">
+  /*一言API*/
+  $(document).ready(function(){
+    getHitokoto();
+  });
+  function hitokoto(e) {
+    $("#hitokoto").stop().fadeOut(function() {
+      $("#hitokoto").html(e.hitokoto);
+      var element = document.getElementById('hitokotoa');
+      element.href = "https://hitokoto.cn?id=" + e.id;
+      $("#hitokoto").stop().fadeIn()
+    })
+  };
+  function getHitokoto() {
+    var e = ["a", "b", "c", "d"],
+    t = document.createElement("script");
+    t.type = "text/javascript";
+    t.id = "hitokotoko_js";
+    t.src = "//v1.hitokoto.cn/?encode=json&callback=hitokoto&charset=utf-8&cat=" + e[Math.floor(Math.random() * e.length)];
+    $("#hitokoto").append(t);
+  };
+  setInterval(getHitokoto, 1e4);
+  </script>
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+  
+
+<!-- Functions -->
+<script type="text/javascript">
+  /* 切换背景 */
+  
+  $("#background").removeClass("banner-bg");
+  $("body").addClass("banner-bg");
+  var postToTopHight = $("#board").offset().top;
+  $(window).scroll(function () {
+    var bgDisplay = false;
+    var scrollHeight = document.body.scrollTop + document.documentElement.scrollTop;
+    bgDisplay = scrollHeight >= postToTopHight;
+    if(bgDisplay) {
+      $('#background').removeClass("rgba-black-slight");
+      $('#mainContent').removeClass("rgba-black-slight");
+      $('#footerContent').removeClass("rgba-black-slight");
+    } else {
+      $('#background').addClass("rgba-black-slight");
+      $('#mainContent').addClass("rgba-black-slight");
+      $('#footerContent').addClass("rgba-black-slight");
+    }
+  });
+  
+</script>
+
+
+  <script type="text/javascript">
+    /*窗口监视*/
+    var originalTitle = document.title;
+    window.onblur = function(){document.title = "你不爱我了QAQ"};
+    window.onfocus = function(){document.title = originalTitle};
+  </script>
+
+
+  <script type="text/javascript">
+    /* 雪花效果 */
+    console.log('雪花效果 code by kvv.me');
+    ~function () {
+      function t() {
+          e.width = window.innerWidth,
+          e.height = window.innerHeight,
+          o = Math.round(window.innerWidth * window.innerHeight / 1e4)
+      }
+      function n() {
+          var t = window.innerWidth
+            , d = window.innerHeight
+            , c = e.getContext("2d");
+          c.clearRect(0, 0, t, d),
+          c.fillStyle = "rgba(255, 255, 255, 0.7)",
+          c.beginPath(),
+          a += .01;
+          for (var u = 0; o > u; u++) {
+            var l = r[u];
+            if (!l) {
+              continue
+            }
+            ;c.moveTo(l.x, l.y),
+            c.arc(l.x, l.y, l.radius, 0, 2 * Math.PI, !0),
+            l.y += Math.cos(a) + l.radius / 2,
+            l.x += Math.sin(a * l.direction),
+            (l.x > t + 5 || -5 > l.x || l.y > d) && (u % 3 > 0 ? (r[u].x = Math.random() * t,
+            r[u].y = -10) : Math.sin(a * l.direction) > 0 ? (r[u].x = -5,
+            r[u].y = Math.random() * d) : (r[u].x = t + 5,
+            r[u].y = Math.random() * d))
+          }
+          c.fill(),
+          i(n)
+      }
+      var e = document.createElement("canvas")
+        , i = requestAnimationFrame || msRequestAnimationFrame || function(t) {
+          setTimeout(t, 16)
+        }
+      , a = 0
+      , o = 0
+      , r = [];
+      t(),
+      e.className = "snow",
+      document.body.appendChild(e);
+      for (var d = 0; o > d; d++)
+        r.push({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            radius: 4 * Math.random() + 1,
+            direction: 2 * Math.random() - .5
+        });
+      addEventListener("resize", t),
+      i(n)
+    }();
+  </script>
+
+
+  
+</body>
+</html>

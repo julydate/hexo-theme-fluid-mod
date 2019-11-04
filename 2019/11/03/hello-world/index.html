@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="Hexo-Theme-Fluid-Mod">
+  <meta name="author" content="Julydate">
+  <meta name="keywords" content="-&#34;hexo,theme,fluid,mod,修改版,主题,hexo主题&#34;">
+  <title>Hello World ~ Fluid修改版</title>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+<script src="/lib/jquery/jquery.min.js" ></script>
+  <style type="text/css">
+    .banner-bg {
+      
+      background-position: center;
+      background-repeat: repeat-y;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+
+<body class="banner-bg">
+  
+<div id="sidebar" class="sidebar-hide">
+  <span class="sidebar-button sidebar-button-shift" id="toggle-sidebar" >
+    <i class="fa fa-arrow-right on" aria-hidden="true"></i>
+  </span>
+  <div class="sidebar-overlay"></div>
+  <div class="sidebar-intrude">
+    <div class="sidebar-avatar">
+      <img src="/img/head.jpg" srcset="/img/head.jpg" alt="avatar"/>
+    </div>
+    <div class="text-center sidebar-about">
+      <p class="h3 sidebar-author">Fluid修改版</p>
+      <p class="sidebar-subtitle">Hexo-Theme-Fluid-Mod</p>
+      
+        <a href="https://github.com/qixa/hexo-theme-fluid-mod" class="h4" target="_blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        &nbsp;&nbsp;
+      
+        <a href="https://twitter.com" class="h4" target="_blank">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+        &nbsp;&nbsp;
+      
+        <a href="https://weibo.com" class="h4" target="_blank">
+          <i class="fab fa-weibo" aria-hidden="true"></i>
+        </a>
+        &nbsp;&nbsp;
+      
+        <a href="mailto:example@example.com" class="h4" target="_blank">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+        &nbsp;&nbsp;
+      
+    </div>
+    <div class="sidebar-friend">
+      <p class="h6 sidebar-friend-title">
+        <span class="sidebar-label-left"><i class="fas fa-user-friends"></i></span>
+        <span class="sidebar-label">友情链接</span>
+      </p>
+      <ul class="list-group">
+        
+          <a href="https:/www.julydate.com/" target="_blank">
+            <li class="list-group-item">
+              <i class="fas fa-quote-left"></i>&nbsp;
+              Julydate
+            </li>
+          </a>
+        
+    </ul>
+    </div>
+  </div>
+</div>
+
+
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid修改版</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">主页</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2 rgba-black-slight" id="background">
+      <div class="full-bg-img">
+        <div class="mask flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+            
+              <br>
+              <p class="mt-3">
+                <i class="far fa-calendar-alt"></i>
+                <span class="post-date">2019-11-03&nbsp;|&nbsp;</span>
+                <i class="far fa-chart-bar"></i>
+                <span class="post-count">73</span>字&nbsp;|&nbsp;
+                <i class="far fa-clock"></i>
+                <span class="post-count">1</span>分钟
+                
+                  <span id="busuanzi_container_page_pv" style="display:none">
+                    &nbsp;|&nbsp;
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv"></span>次
+                  </span>
+                
+              </p>
+            
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="mainContent" class="rgba-black-slight">
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <div id="post-tag">
+              
+                <span>
+                  <i class="iconfont icon-inbox"></i>
+                  
+                    <a class="hover-with-bg" href="/categories/test">test</a>
+                    &nbsp;
+                  
+                </span>
+              
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/test">test</a>
+                
+              </span>
+            </div>
+            
+              <div id="post-note">
+                <div><strong>本文作者：</strong><a href="/">Sakura</a></div>
+                <div><strong>本文链接：</strong><a href="https://qixa.github.io/hexo-theme-fluid-mod/2019/11/03/hello-world/">https://qixa.github.io/hexo-theme-fluid-mod/2019/11/03/hello-world/</a></div>
+                <div><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</div>
+              </div>
+            
+            
+              <div id="post-nav" class="container">
+                  <div class="row">
+                    
+                      <a href="/2019/11/04/%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95/" id="post-nav-prev" class="col">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="post-nav-title">中文测试</span>
+                      </a>
+                    
+                    
+                  </div>
+                </div>
+            
+          </div>
+        </div>
+
+        <!-- custom -->
+        
+
+        <!-- Comments -->
+        <div class="col-lg-10 mx-auto nopadding-md">
+          <div class="container comments mx-auto" id="comments">
+            
+             <br><br>
+              
+              <div class="disqus" style="width:100%">
+  <div id="disqus_thread">
+    <div id="disqus_loading" style="width: 100%; margin: 0 auto 0 auto; text-align: center;">
+      <button type="button" class="btn btn-primary disqus_click_btn" onclick="reload_disqus();">点击加载评论</button>
+    </div>
+  </div>
+  <script type="text/javascript">
+	/*Disqus 评论框*/
+	var recheckDQ = function () {
+		if($('#disqus_thread').length) {
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', '//disqus.com/next/config.json?' + new Date().getTime(), true);
+			xhr.timeout = 3000;
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					/*加载 Disqus 评论框*/
+					if(window.DISQUS) {
+						DISQUS.reset({
+						reload: true
+						});
+					} else {
+						/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+						var disqus_shortname = 'fluidmod';
+						
+						/* * * DON'T EDIT BELOW THIS LINE * * */
+             			var disqus_config = function () {
+							 this.page.url = "https://qixa.github.io/hexo-theme-fluid-mod/2019/11/03/hello-world/";
+							 this.page.identifier = "2019/11/03/hello-world/"; 
+							 this.page.title = "Hello World";
+             			};
+             			(function () {
+							 var d = document, s = d.createElement('script');
+               				 s.type = 'text/javascript';
+               				 s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+               				 s.setAttribute('data-timestamp', +new Date());
+               				 (d.head || d.body).appendChild(s);
+             			})();
+					}
+				}
+			}
+			xhr.ontimeout = function () {
+				xhr.abort();
+        /*加载自制评论框*/
+        document.getElementById('disqus_loading').style.display = "block";
+				document.getElementById('disqus_loading').innerHTML = '<button type="button" class="btn btn-primary disqus_click_btn" onclick="reload_disqus();">点击重新加载评论</button><div class="col-lg-6 mx-auto nopadding-md" style="padding-top:10px;"><p>如果长时间无法加载，请针对 disq.us | disquscdn.com | disqus.com 启用代理</p></div>';
+			}
+			xhr.onerror = function() {
+        /*加载自制评论框*/
+        document.getElementById('disqus_loading').style.display = "block";
+				document.getElementById('disqus_loading').innerHTML = '<button type="button" class="btn btn-primary disqus_click_btn" onclick="reload_disqus();">点击重新加载评论</button><div class="col-lg-6 mx-auto nopadding-md" style="padding-top:10px;"><p>如果长时间无法加载，请针对 disq.us | disquscdn.com | disqus.com 启用代理</p></div>';
+			}
+			xhr.send(null);
+		}
+	}
+	/*异步加载评论框*/
+	$(document).ready(function(){
+  		if(document.getElementById('disqus_thread')) {
+    		recheckDQ();
+  		}
+	});
+	/*重载评论框*/
+	var reload_disqus = function () {
+  		recheckDQ();
+  		$('#disqus_loading').css('display','none');
+	}
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Disqus.</a></noscript>
+</div>
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    
+  </main>
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <div id="footerContent"  class="rgba-black-slight">
+<footer class="pt-5">
+  <div class="text-center py-3">
+    <div class="footer-theme">
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener noreferrer">Hexo</a> theme <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener noreferrer">Fluid</a> mod by <a href="https://github.com/julydate/hexo-theme-fluid-mod" target="_blank" rel="nofollow noopener noreferrer">Julydate</a>
+    </div>
+
+    
+      <div class="footer-copyright">
+        
+          ©2019&nbsp;Julydate
+        
+        
+      </div>
+    
+
+    
+      <div class="footer-siteview">
+        
+          <!-- 不蒜子统计PV -->
+          <span id="busuanzi_container_site_pv" style="display:none">
+              被瞅了<span id="busuanzi_value_site_pv"></span>次
+          </span>
+        
+        
+          <!-- 不蒜子统计UV -->
+          <span id="busuanzi_container_site_uv" style="display:none">
+            |
+            被<span id="busuanzi_value_site_uv"></span>人看爆
+          </span>
+        
+      </div>
+    
+
+    
+
+    
+      <!-- 一言 -->
+      <div class="footer-hitokoto">
+        <a id="hitokotoa" href="#" target="_blank" rel="nofollow noopener noreferrer">
+          <span id="hitokoto"></span>
+        </a>
+      </div>
+    
+    
+  </div>
+</footer>
+</div>
+<!-- SCRIPTS -->
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+  <script src="/js/lazyload.js" ></script>
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+<!-- Plugins -->
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script type="text/javascript">
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Hello World&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script type="text/javascript">
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+  <script src="/js/local-search.js" ></script>
+  <script type="text/javascript">
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script type="text/javascript">
+  /* Fancybox */
+  var setupFancybox = function () {
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(function() {
+    var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      $(this).wrap(element);
+    });
+  };
+  setupFancybox();
+  </script>
+
+
+
+
+  <!-- 首页文章列表随机图片 -->
+  <script type="text/javascript">
+    $("img.image_random").each(function(){
+      
+        var xjhUrl = "//img.xjh.me/random_img.php?return=json";
+      
+      var _this = $(this);
+      $.get(xjhUrl,function(data,status){
+        if(status === "success"){
+          if(data.result === 200){
+            _this[0].src = data.img;
+          }
+        }
+      });
+    });
+  </script>
+
+
+  <!-- 随机背景 -->
+  <script src="/lib/backstretch/jquery.backstretch.min.js" ></script>
+  
+  
+    <!-- 本地随机背景 -->
+    <script type="text/javascript">
+      !function(){
+        var random_bg_string = "http://img.xjh.me/desktop/bg/acg/64082849_p0.jpg,http://img.xjh.me/desktop/bg/acg/63946708_p0.jpg,http://img.xjh.me/desktop/bg/acg/59756207_p0.jpg,http://img.xjh.me/desktop/bg/acg/63374320_p0.jpg,http://img.xjh.me/desktop/bg/nature/59190594_p0.jpg,http://img.xjh.me/desktop/bg/acg/63093148_p0.jpg,http://img.xjh.me/desktop/bg/acg/62494753_p0.jpg,http://img.xjh.me/desktop/bg/acg/61749296_p0.jpg,";
+        /* 去除图片链接组末尾逗号并转换为数组 */
+        random_bg_string = random_bg_string.substring(0,random_bg_string.length-1);
+        var random_bg_array = random_bg_string.split(",");
+        /* 首张图片随机 */
+        var n = Math.floor(Math.random() * random_bg_array.length);
+        $(".banner-bg").backstretch(
+          random_bg_array,
+          {
+            duration: 20 * 1000,
+            fade: 2 * 1000,
+            start: n,
+            animateFirst: false
+          }
+        );
+      }();
+    </script>
+  
+
+
+  <script type="text/javascript">
+  /*一言API*/
+  $(document).ready(function(){
+    getHitokoto();
+  });
+  function hitokoto(e) {
+    $("#hitokoto").stop().fadeOut(function() {
+      $("#hitokoto").html(e.hitokoto);
+      var element = document.getElementById('hitokotoa');
+      element.href = "https://hitokoto.cn?id=" + e.id;
+      $("#hitokoto").stop().fadeIn()
+    })
+  };
+  function getHitokoto() {
+    var e = ["a", "b", "c", "d"],
+    t = document.createElement("script");
+    t.type = "text/javascript";
+    t.id = "hitokotoko_js";
+    t.src = "//v1.hitokoto.cn/?encode=json&callback=hitokoto&charset=utf-8&cat=" + e[Math.floor(Math.random() * e.length)];
+    $("#hitokoto").append(t);
+  };
+  setInterval(getHitokoto, 1e4);
+  </script>
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+  
+
+<!-- Functions -->
+<script type="text/javascript">
+  /* 切换背景 */
+  
+  $("#background").removeClass("banner-bg");
+  $("body").addClass("banner-bg");
+  var postToTopHight = $("#board").offset().top;
+  $(window).scroll(function () {
+    var bgDisplay = false;
+    var scrollHeight = document.body.scrollTop + document.documentElement.scrollTop;
+    bgDisplay = scrollHeight >= postToTopHight;
+    if(bgDisplay) {
+      $('#background').removeClass("rgba-black-slight");
+      $('#mainContent').removeClass("rgba-black-slight");
+      $('#footerContent').removeClass("rgba-black-slight");
+    } else {
+      $('#background').addClass("rgba-black-slight");
+      $('#mainContent').addClass("rgba-black-slight");
+      $('#footerContent').addClass("rgba-black-slight");
+    }
+  });
+  
+</script>
+
+
+  <script type="text/javascript">
+    /*窗口监视*/
+    var originalTitle = document.title;
+    window.onblur = function(){document.title = "你不爱我了QAQ"};
+    window.onfocus = function(){document.title = originalTitle};
+  </script>
+
+
+  <script type="text/javascript">
+    /* 雪花效果 */
+    console.log('雪花效果 code by kvv.me');
+    ~function () {
+      function t() {
+          e.width = window.innerWidth,
+          e.height = window.innerHeight,
+          o = Math.round(window.innerWidth * window.innerHeight / 1e4)
+      }
+      function n() {
+          var t = window.innerWidth
+            , d = window.innerHeight
+            , c = e.getContext("2d");
+          c.clearRect(0, 0, t, d),
+          c.fillStyle = "rgba(255, 255, 255, 0.7)",
+          c.beginPath(),
+          a += .01;
+          for (var u = 0; o > u; u++) {
+            var l = r[u];
+            if (!l) {
+              continue
+            }
+            ;c.moveTo(l.x, l.y),
+            c.arc(l.x, l.y, l.radius, 0, 2 * Math.PI, !0),
+            l.y += Math.cos(a) + l.radius / 2,
+            l.x += Math.sin(a * l.direction),
+            (l.x > t + 5 || -5 > l.x || l.y > d) && (u % 3 > 0 ? (r[u].x = Math.random() * t,
+            r[u].y = -10) : Math.sin(a * l.direction) > 0 ? (r[u].x = -5,
+            r[u].y = Math.random() * d) : (r[u].x = t + 5,
+            r[u].y = Math.random() * d))
+          }
+          c.fill(),
+          i(n)
+      }
+      var e = document.createElement("canvas")
+        , i = requestAnimationFrame || msRequestAnimationFrame || function(t) {
+          setTimeout(t, 16)
+        }
+      , a = 0
+      , o = 0
+      , r = [];
+      t(),
+      e.className = "snow",
+      document.body.appendChild(e);
+      for (var d = 0; o > d; d++)
+        r.push({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            radius: 4 * Math.random() + 1,
+            direction: 2 * Math.random() - .5
+        });
+      addEventListener("resize", t),
+      i(n)
+    }();
+  </script>
+
+
+  
+</body>
+</html>
