@@ -46,8 +46,8 @@ page.banner_img_height = theme.index.banner_img_height
           <i class="iconfont icon-riqi2"></i>&nbsp;<%- date(post.date, config.date_format) %>&nbsp;&nbsp;
         <% } %>
         <% if(theme.index.post_meta.wordcount ) { %>
-        <i class="far fa-chart-bar"></i><%= wordcount(post.content) %>字&nbsp;&nbsp;
-        <i class="far fa-clock"></i><%= min2read(post.content) %>分钟&nbsp;&nbsp;
+        <i class="far fa-chart-bar"></i>&nbsp;<%= wordcount(post.content) %>字&nbsp;&nbsp;
+        <i class="far fa-clock"></i>&nbsp;<%= min2read(post.content) %>分钟&nbsp;&nbsp;
         <% } %>
         <% if(theme.index.post_meta.category && post.categories.length) { %>
           <i class="iconfont icon-inbox"></i>
