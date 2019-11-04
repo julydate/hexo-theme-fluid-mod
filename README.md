@@ -18,6 +18,8 @@
 
 ### 修改版
 
+[demo](https://fluid.xhtml.love/)
+
 [七夏浅笑](https://www.julydate.com)
 
 ## 新增的功能
