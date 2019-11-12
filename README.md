@@ -18,7 +18,7 @@
 
 ### 修改版
 
-[demo](https://fluid.xhtml.love/)
+[demo]( https://qixa.github.io/hexo-theme-fluid-mod)
 
 [七夏浅笑](https://www.julydate.com)
 
