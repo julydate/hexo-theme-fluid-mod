@@ -1,3 +1,8 @@
+### 2019/11/12
+
+- 修复部分资源引用链接为 full_url_for 和 url_for
+- 修复  local-search 相关 bug
+
 ### 2019/11/07
 
 -  lazyload 可自定义图片

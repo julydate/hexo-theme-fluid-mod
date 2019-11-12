@@ -20,7 +20,7 @@ if (page.title) {
   <style type="text/css">
     .banner-bg {
       <% if(!theme.random_bg.enable){ %>
-        background-image: url('<%- banner_img %>');
+        background-image: url('<%- url_for(banner_img) %>');
       <% } %>
       background-position: center;
       background-repeat: repeat-y;

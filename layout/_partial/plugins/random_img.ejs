@@ -61,12 +61,12 @@
               shiftBackground(0, <%= theme.random_bg.num %>, 0, data.img, [], xjhUrl);
             } else {
               /* 请求失败直接替换背景 */
-              $(".banner-bg").backstretch("<%= page.banner_img || theme.index.banner_img %>");
+              $(".banner-bg").backstretch("<%- url_for(page.banner_img) || url_for(theme.index.banner_img) %>");
             }
           },
           error: function(xhr) {
             /* 请求失败直接替换背景 */
-            $(".banner-bg").backstretch("<%= page.banner_img || theme.index.banner_img %>");
+            $(".banner-bg").backstretch("<%- url_for(page.banner_img) || url_for(theme.index.banner_img) %>");
           }
         });
         var shiftBackground = function(i, num, j, imgUrl, imgUrls, xjhUrl) {
@@ -112,7 +112,7 @@
     <!-- 本地随机背景 -->
     <script type="text/javascript">
       !function(){
-        var random_bg_string = "<% for(const i in theme.random_bg.url) { %><% var link = theme.random_bg.url[i] %><% if (!link) continue %><%= link %>,<% } %>";
+        var random_bg_string = "<% for(const i in theme.random_bg.url) { %><% var link = theme.random_bg.url[i] %><% if (!link) continue %><%- url_for(link) %>,<% } %>";
         /* 去除图片链接组末尾逗号并转换为数组 */
         random_bg_string = random_bg_string.substring(0,random_bg_string.length-1);
         var random_bg_array = random_bg_string.split(",");

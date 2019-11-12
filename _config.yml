@@ -88,7 +88,7 @@ web_analytics:  # 网页统计代码
 lazyload: # 对页面中的图片进行懒加载处理，未在视口的图片不会加载
   enable: true
   onlypost: true
-  loadingimg: /img/loading.gif
+  loadingimg: /img/loading.gif # 网站放在子目录时需要追加子目录前缀
   
 fancybox: # 文章图片灯箱
   enable: true
@@ -112,7 +112,8 @@ navbar:
 
 search: # 搜索栏
   enable: true
-  path: /local-search.xml
+  path: /local-search.xml # 文件引用地址，可以将生成后的 local-search.xml 上传到其它位置引用，如：https://www.example.com/local-search.xml
+  generatePath: /local-search.xml # 文件生成位置，必须为相对位置
   field: post
   content: true
 
