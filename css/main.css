@@ -718,6 +718,9 @@ h6::before {
     max-width: 64rem;
   }
 }
+.katex-block {
+  overflow-x: auto;
+}
 .about-avatar {
   position: relative;
   margin: -8rem auto 1rem;
