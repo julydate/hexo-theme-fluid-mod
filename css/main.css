@@ -253,6 +253,8 @@ body a:hover {
   transition: all 0.2s ease-in;
   -webkit-box-shadow: 0.25rem 0px 0.25rem 0px rgba(175,175,175,0.6);
   box-shadow: 0.25rem 0px 0.25rem 0px rgba(175,175,175,0.6);
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
 }
 #sidebar::-webkit-scrollbar {
   display: none;
@@ -670,6 +672,14 @@ h6::before {
 }
 #toc {
   padding: 3rem 0 0 0;
+  margin: 1rem 0 0 0;
+  height: calc(100% - 9rem);
+  overflow-y: scroll;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+#toc::-webkit-scrollbar {
+  display: none;
 }
 #tocbot ol {
   list-style: none;
