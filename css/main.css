@@ -672,13 +672,15 @@ h6::before {
 }
 #toc {
   padding: 3rem 0 0 0;
-  margin: 1rem 0 0 0;
   height: calc(100% - 9rem);
+}
+#tocbot {
+  max-height: 100%;
   overflow-y: scroll;
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
 }
-#toc::-webkit-scrollbar {
+#tocbot::-webkit-scrollbar {
   display: none;
 }
 #tocbot ol {
