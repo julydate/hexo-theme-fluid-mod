@@ -52,6 +52,9 @@ body a:hover {
   height: 0.2em;
   margin: 2rem 0;
 }
+.markdown-body strong {
+  font-weight: bold;
+}
 .list-group-item {
   border: 0;
 }
@@ -254,6 +257,7 @@ body a:hover {
   -webkit-box-shadow: 0.25rem 0px 0.25rem 0px rgba(175,175,175,0.6);
   box-shadow: 0.25rem 0px 0.25rem 0px rgba(175,175,175,0.6);
   overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
   -ms-overflow-style: none;
 }
 #sidebar::-webkit-scrollbar {
@@ -678,6 +682,7 @@ h6::before {
   max-height: 100%;
   overflow-y: scroll;
   overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
   -ms-overflow-style: none;
 }
 #tocbot::-webkit-scrollbar {
