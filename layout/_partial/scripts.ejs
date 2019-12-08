@@ -139,18 +139,23 @@
 <% if(theme.post.comments.autojump) { %>
   <script type="text/javascript">
     /* 评论自动跳转 */
-    if(window.location.hash){
-      let hash_decode = decodeURI(window.location.hash);
-      if(!$(hash_decode).length){
-        let checkExist = setInterval(function() {
-          if ($(hash_decode).length && window.onload) {
-            clearInterval(checkExist);
-            setTimeout(function(){
-              $('html, body').animate({scrollTop: $(hash_decode).offset().top-90}, 1000);
-            }, 3000);
-          }
-        }, 100);
+    var jumpComments = function(){
+      if(window.location.hash){
+        var hash_decode = decodeURI(window.location.hash);
+        if(!$(hash_decode).length){
+          var checkExist = setInterval(function() {
+            if ($(hash_decode).length) {
+              clearInterval(checkExist);
+              setTimeout(function(){
+                $('html, body').animate({scrollTop: $(hash_decode).offset().top-90}, 1000);
+              }, 1500);
+            }
+          }, 100);
+        }
       }
     }
+    $(document).ready(function(){
+	    jumpComments();
+    });
   </script>
 <% } %>
