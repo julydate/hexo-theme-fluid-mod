@@ -216,6 +216,7 @@ post:
   comments:
     enable: false
     type: disqus  # available: disqus | valine | gitalk | utterances
+    autojump: false
   math:  # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见 https://fluid-dev.github.io/hexo-fluid-docs/guide/#数学公式
     enable: false
     specific: false  # 开启后，只有在文章 Front-matter 里指定 `math: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
