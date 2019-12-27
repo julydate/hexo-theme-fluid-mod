@@ -1,7 +1,7 @@
 <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="<%- url_for() %>">&nbsp;<strong><%= theme.navbar.blog_title || config.title %></strong>&nbsp;</a>
+       href="<%- url_for() %>">&nbsp;<strong><%- theme.navbar.blog_title || config.title %></strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -12,11 +12,15 @@
     <!-- Collapsible content -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto text-center">
-        <% for(const i in theme.navbar.menu) { %>
-          <% var link = theme.navbar.menu[i] %>
+        <% for(const each in theme.navbar.menu) { %>
+          <% var link = theme.navbar.menu[each] %>
           <% if (!link) continue %>
+          <% var text = __(each + '.title') || each %>
+          <% if (text.indexOf('.title') !== -1) {
+            text = each
+          } %>
           <li class="nav-item">
-            <a class="nav-link" href="<%- url_for(link) %>"><%= i %></a>
+            <a class="nav-link" href="<%- url_for(link) %>"><%- text %></a>
           </li>
         <% } %>
         <% if(theme.search.enable) { %>

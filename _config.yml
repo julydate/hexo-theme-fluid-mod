@@ -17,6 +17,8 @@ apple_touch_icon: /img/apple-touch-icon.png # 用于苹果设备的 icon
 
 title_join_string: ' ~ '  # 浏览器标签页中的标题分隔符，效果： 文章名 ~ 站点名
 
+force_https: false  # 强制所有链接升级为 HTTPS（适用于图片等资源出现 HTTP 混入报错）
+
 highlight: # 代码高亮
   enable: true
   line_number: true # 显示代码行号
@@ -34,6 +36,9 @@ fun_features: # 一些好玩的功能
     placement: right # icon放置的位置： left | right
     visible: hover # always：一直可见，hover：鼠标悬停时出现，touch：仅移动设备可见
     icon: "" # 例如：§ | # | ❡ 等，留空则为默认效果
+  mouse_click:  # 鼠标点击动效
+    enable: false
+    style: values # 目前设置两个值：values（价值观词汇） | love（爱心）
   monitortext:
     enable: true
     text: 你不爱我了QAQ
@@ -48,6 +53,9 @@ color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdes
   text_color: "#3c4858"
   link_color: "#3c4858"
   link_hover_color: "#fe4365" #1abc9c
+  board_color: "#fff"
+  tocbot_link_color: "#3c4858"
+  tocbot_link_active_color: "#fe4365" #1abc9c
   tocbot_link_shadow: "0.1em 0.1em 0.2em #ffffff"
   tocbot_active_link_shadow: "0.1em 0.1em 0.2em #ffbcbc"
   sidebar_text_color: "#3c4858"
@@ -95,7 +103,11 @@ fancybox: # 文章图片灯箱
 
 smooth_scroll: # 平滑滚动效果
   enable: false
-  
+
+daovoice:  # 在线客服 Daovoice 参考：http://dashboard.daovoice.io
+  enable: false # 是否开启在线客服聊天
+  appid: ''  # 应用ID设置
+
 
 #---------------------------
 # 页头
@@ -103,12 +115,12 @@ smooth_scroll: # 平滑滚动效果
 #---------------------------
 navbar:
   blog_title:  # 导航栏左侧的标题，为空则按 hexo config.title 显示
-  menu:  # 可自行增减，若想减去某个入口，可以将值留空
-    Home: /
-    Archives: /archives/
-    Categories: /categories/
-    Tags: /tags/
-    About: /about/
+  menu:  # 可自行增减，若想减去某个入口，可以将值留空，显示文本关联 languages
+    home: /
+    archive: /archives/
+    category: /categories/
+    tag: /tags/
+    about: /about/
 
 search: # 搜索栏
   enable: true
@@ -166,6 +178,7 @@ footer:
     icp_text: 京ICP证123456号 # ICP证号
     police_text: 京公网安备12345678号 # 公安备案号，不填则只显示ICP
     police_code: 12345678 # 公安备案的编号，用于URL跳转查询
+    police_icon: /img/police_beian.png # 公安备案的图片. 为空时不显示备案图片
   hitokoto: true # 显示一言，关于一言：https://hitokoto.cn/
 
 scroll_top_arrow:  # 向顶部滚动的箭头
@@ -215,7 +228,7 @@ post:
     content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定义区域，支持 HTML，可自行插入赞赏码、公众号二维码等内容
   comments:
     enable: false
-    type: disqus  # available: disqus | valine | gitalk | utterances
+    type: disqus  # available: disqus | valine | gitalk | utterances | changyan | livere
     autojump: false # 自动跳转到对应评论
   math:  # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见 https://fluid-dev.github.io/hexo-fluid-docs/guide/#数学公式
     enable: false
@@ -272,6 +285,32 @@ valine:
   avatar: retro # gravatar style https://valine.js.org/avatar.html
   pageSize: 10 # pagination size
 
+# Changyan
+# You can get your appid from http://changyan.kuaizhan.com/setting/common/isv-mgr
+# Install: http://changyan.kuaizhan.com/static/help/f-fitself.html
+changyan:
+  appid: ''            # your changyan application appid        # 畅言ID
+  conf: ''             # conf                                   # 畅言设置
+  notify: false        # beian warning message                  # 备案提示
+  libopen: true        # open laboratory                        # 畅言实验室功能开关
+  cyEmoji: true        # comments emoji                         # 评论表情
+  cyWallsplugin: true  # Hot text matching                      # 热文配图
+  cyReping: true       # hot comments                           # 热门评论
+  cyReward: true       # reward                                 # 打赏
+  cyQing: true         # Light comment                          # 轻评论
+  cyHotusers: true     # User evaluation                        # 热评用户
+  cyHotnews: true      # Hot news                               # 热门新闻
+  cyHotnewswall: true  # News wall                              # 新闻墙
+  cyPk: ''             # Topic debate                           # 辩论
+  cyPoll: true         # vote                                   # 投票
+  cyBarrage: true      # Picture barrage                        # 图片弹幕
+  cyTvbarrage: true    # Video barrage                          # 视频弹幕
+
+# Livere 来必力
+# You can get your uid from https://www.livere.com/my_Livere
+livere:
+  uid: ''            # your livere application uid        # 来必力ID
+
 
 #---------------------------
 # 归档页
@@ -316,10 +355,11 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/a
   banner_img_height: 80  # available: 0 - 100
   name: myname
   introduce: info / info / info # 支持 HTML
-  icons: # 更多图标可从 https://fontawesome.com/icons 查找，并以 "图标名: url" 的格式添加在下方
+  icons: # 更多图标可从 https://fontawesome.com/v4.7.0/icons/ 查找，并以 "图标名: url" 的格式添加在下方
     "fab fa-github": https://github.com
     "fab fa-twitter": https://twitter.com
     "fas fa-envelope": mailto:example@example.com
+
 
 #---------------------------
 # 404页
@@ -330,6 +370,7 @@ page404:
   banner_img_height: 80  # available: 0 - 100
   subtitle: 'Page not found'
 
+
 #---------------------------
 # 侧边栏
 # Sidebar
@@ -338,7 +379,7 @@ sidebar:
     enable: true
     name:  # 名字，留空则使用网站title
     introduce:  # 支持 HTML，留空则使用网站subtitle
-    icons: # 更多图标可从 https://fontawesome.com/icons 查找，并以 "图标名: url" 的格式添加在下方
+    icons: # 更多图标可从 https://fontawesome.com/v4.7.0/icons/ 查找，并以 "图标名: url" 的格式添加在下方
         "fab fa-github": https://github.com
         "fab fa-twitter": https://twitter.com
         "fas fa-envelope": mailto:example@example.com
