@@ -7,7 +7,6 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
 %>
 <%- partial('_partial/head', {banner_img: banner_img}) %>
 <body class="banner-bg">
-  <%- partial('_partial/sidebar') %>
   <header style="height: <%- banner_img_height %>vh;">
     <%- partial('_partial/nav') %>
     <div class="view intro-2 rgba-black-slight" id="background">
@@ -71,6 +70,7 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
       </div>
     <% } %>
   </main>
+  <%- partial('_partial/sidebar') %>
   <% if (theme.scroll_top_arrow.enable) { %>
     <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
       <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
