@@ -235,6 +235,23 @@ body a:hover {
 .pagination .current {
   background-color: #eee;
 }
+a.police-beian {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+a.police-beian img {
+  margin: 0 3px;
+  width: 18px;
+  height: 18px;
+}
+@media (max-width: 320px) {
+  a.police-beian span.police-beian-sep {
+    display: none;
+  }
+}
 .snow {
   position: fixed;
   z-index: -1;
@@ -696,12 +713,15 @@ h6::before {
   list-style: none;
   padding-left: 1rem;
 }
+.tocbot-list a {
+  font-size: 15px;
+}
 .tocbot-link {
   color: #3c4858;
 }
 .tocbot-active-link {
   font-weight: 600;
-  color: #fe4365;
+  color: #1abc9c;
 }
 .tocbot-is-collapsible {
   max-height: 1000px;
