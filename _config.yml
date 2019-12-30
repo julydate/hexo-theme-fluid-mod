@@ -54,6 +54,7 @@ color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdes
   link_color: "#3c4858"
   link_hover_color: "#fe4365" #1abc9c
   board_color: "#fff"
+  toc_title_p_color: "#3c4858"
   tocbot_link_color: "#3c4858"
   tocbot_link_active_color: "#fe4365" #1abc9c
   tocbot_link_shadow: "0.1em 0.1em 0.2em #ffffff"

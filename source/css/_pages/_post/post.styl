@@ -56,6 +56,9 @@
   padding 3rem 0 0 0
   height calc(100% - 9rem)
 
+#toc p
+  color $toc-title-p-color
+
 #tocbot
   max-height 100%
   overflow-y scroll
@@ -77,10 +80,12 @@
 
 .tocbot-link
   color $tocbot-link-color
+  text-shadow $tocbot-link-shadow
 
 .tocbot-active-link
   font-weight 600
   color $tocbot-link-active-color
+  text-shadow $tocbot-active-link-shadow
 
 .tocbot-is-collapsible
   max-height 1000px
