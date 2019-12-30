@@ -414,12 +414,6 @@ a:hover {
 .sidebar-friend i.fa-quote-left {
   color: #bfbfbf;
 }
-.tocbot-link {
-  text-shadow: 0.1em 0.1em 0.2em #ffffff;
-}
-.tocbot-active-link {
-  text-shadow: 0.1em 0.1em 0.2em #ffbcbc;
-}
 footer {
   color: #ffffff;
   text-shadow: 0.1rem 0.1rem 0.5rem white;
@@ -695,6 +689,9 @@ h6::before {
   padding: 3rem 0 0 0;
   height: calc(100% - 9rem);
 }
+#toc p {
+  color: #3c4858;
+}
 #tocbot {
   max-height: 100%;
   overflow-y: scroll;
@@ -718,10 +715,12 @@ h6::before {
 }
 .tocbot-link {
   color: #3c4858;
+  text-shadow: 0.1em 0.1em 0.2em #ffffff;
 }
 .tocbot-active-link {
   font-weight: 600;
-  color: #1abc9c;
+  color: #fe4365;
+  text-shadow: 0.1em 0.1em 0.2em #ffbcbc;
 }
 .tocbot-is-collapsible {
   max-height: 1000px;
