@@ -122,6 +122,7 @@ navbar:
     category: /categories/
     tag: /tags/
     about: /about/
+    #links: /links/  # 友链页，把前面#去掉即可展示
 
 search: # 搜索栏
   enable: true
@@ -351,9 +352,11 @@ tag:
 # About Page
 #---------------------------
 about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/about.md 中编辑，支持 markdown 和 HTML
+  enable: true # 是否开启关于页
   md_path: ./pages/about.md  # 关于页文档的相对路径，可以按相对文档设置主题之外的路径，从而避免更新冲突
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
+  comments: true # 是否开启页面评论功能，评论相关设置见文章页设置
   name: myname
   introduce: info / info / info # 支持 HTML
   icons: # 更多图标可从 https://fontawesome.com/v4.7.0/icons/ 查找，并以 "图标名: url" 的格式添加在下方
@@ -373,6 +376,21 @@ page404:
 
 
 #---------------------------
+# 友链页
+# Links Page
+#---------------------------
+links:
+  enable: true # 是否开启友链页
+  banner_img: 
+  banner_img_height: 80  # available: 0 - 100
+  comments: true # 是否开启页面评论功能，评论相关设置见文章页设置
+  items:
+    Fluid Docs: [https://fluid-dev.github.io/hexo-fluid-docs/, 主题使用指南]
+    Fluid Repo: [https://github.com/qixa/hexo-theme-fluid-mod, 主题 GitHub 仓库]
+    Fluid Changelog: [https://github.com/qixa/hexo-theme-fluid-mod/blob/master/Changelog.md, 主题更新日志]
+
+
+#---------------------------
 # 侧边栏
 # Sidebar
 #---------------------------
@@ -387,7 +405,7 @@ sidebar:
 
 
 #---------------------------
-# 友链
+# 侧栏友链
 # Friends
 #---------------------------    
 friends: 
