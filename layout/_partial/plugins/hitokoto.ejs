@@ -8,18 +8,26 @@
     $("#hitokoto").stop().fadeOut(function() {
       $("#hitokoto").html(e.hitokoto);
       var element = document.getElementById('hitokotoa');
-      element.href = "https://hitokoto.cn?id=" + e.id;
+      element.href = "https://hitokoto.cn/?uuid=" + e.uuid;
       $("#hitokoto").stop().fadeIn()
     })
   };
   function getHitokoto() {
-    var e = ["a", "b", "c", "d"],
-    t = document.createElement("script");
-    t.type = "text/javascript";
-    t.id = "hitokotoko_js";
-    t.src = "//v1.hitokoto.cn/?encode=json&callback=hitokoto&charset=utf-8&cat=" + e[Math.floor(Math.random() * e.length)];
-    $("#hitokoto").append(t);
+    var e = ["a", "b", "c", "d", "e", "i"];
+    fetch('https://v1.hitokoto.cn/?encode=json&charset=utf-8&c=' + e[Math.floor(Math.random() * e.length)],{
+      cache: 'no-cache',
+      method: 'GET',
+      mode: 'cors'
+    }).then(
+      response => response.json()
+    ).then(
+      data => {
+        hitokoto(data)
+        setTimeout(getHitokoto, 1e4)
+      }
+    ).catch(
+      console.error
+    )
   };
-  setInterval(getHitokoto, 1e4);
   </script>
 <% } %>
