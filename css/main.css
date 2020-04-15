@@ -252,6 +252,32 @@ a.police-beian img {
     display: none;
   }
 }
+@media (max-width: 768px) {
+  .links {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+}
+.link-card {
+  box-shadow: none;
+}
+.link-card:hover {
+  box-shadow: 0 0 25px 0 rgba(0,0,0,0.16);
+  z-index: 1;
+}
+.link-card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.link-card-text {
+  height: 3em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 .snow {
   position: fixed;
   z-index: -1;

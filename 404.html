@@ -10,9 +10,15 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <meta name="description" content="Hexo-Theme-Fluid-Mod">
   <meta name="author" content="Julydate">
-  <meta name="keywords" content="-&#34;hexo,theme,fluid,mod,修改版,主题,hexo主题&#34;">
+  
+    <meta name="description" content="Hexo-Theme-Fluid-Mod">
+  
+  
+    <meta name="keywords" content="-&#34;hexo,theme,fluid,mod,修改版,主题,hexo主题&#34;">
+  
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
   <title>页面走丢啦~ ~ Fluid修改版</title>
   <link rel="stylesheet" href="/hexo-theme-fluid-mod/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/hexo-theme-fluid-mod/lib/bootstrap/css/bootstrap.min.css"  >
@@ -375,7 +381,7 @@
     
       <div class="footer-copyright">
         
-          ©2019&nbsp;Julydate
+          ©2020&nbsp;Julydate
         
         
       </div>
@@ -536,19 +542,27 @@
     $("#hitokoto").stop().fadeOut(function() {
       $("#hitokoto").html(e.hitokoto);
       var element = document.getElementById('hitokotoa');
-      element.href = "https://hitokoto.cn?id=" + e.id;
+      element.href = "https://hitokoto.cn/?uuid=" + e.uuid;
       $("#hitokoto").stop().fadeIn()
     })
   };
   function getHitokoto() {
-    var e = ["a", "b", "c", "d"],
-    t = document.createElement("script");
-    t.type = "text/javascript";
-    t.id = "hitokotoko_js";
-    t.src = "//v1.hitokoto.cn/?encode=json&callback=hitokoto&charset=utf-8&cat=" + e[Math.floor(Math.random() * e.length)];
-    $("#hitokoto").append(t);
+    var e = ["a", "b", "c", "d", "e", "i"];
+    fetch('https://v1.hitokoto.cn/?encode=json&charset=utf-8&c=' + e[Math.floor(Math.random() * e.length)],{
+      cache: 'no-cache',
+      method: 'GET',
+      mode: 'cors'
+    }).then(
+      response => response.json()
+    ).then(
+      data => {
+        hitokoto(data)
+        setTimeout(getHitokoto, 1e4)
+      }
+    ).catch(
+      console.error
+    )
   };
-  setInterval(getHitokoto, 1e4);
   </script>
 
 
