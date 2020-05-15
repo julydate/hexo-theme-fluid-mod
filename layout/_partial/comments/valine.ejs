@@ -1,7 +1,7 @@
 <% if(theme.valine.appid && theme.valine.appkey){ %>
   <div id="vcomments" style="margin: 0 auto;"></div>
   <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script defer src="//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+  <script defer src="//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
   <script>
     var notify = '<%= theme.valine.notify %>' == true ? true : false;
     var verify = '<%= theme.valine.verify %>' == true ? true : false;
@@ -9,8 +9,6 @@
     window.onload = function () {
       new Valine({
         el: '#vcomments',
-        notify: notify,
-        verify: verify,
         app_id: "<%= theme.valine.appid %>",
         app_key: "<%= theme.valine.appkey %>",
         placeholder: "<%= theme.valine.placeholder %>",
