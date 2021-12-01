@@ -1,0 +1,52 @@
+<% if(theme.waline.serverurl){ %>
+  <div id="vcomments" style="margin: 0 auto;"></div>
+  <script defer src="//cdn.jsdelivr.net/npm/@waline/client@latest/dist/Waline.min.js"></script>
+  <script>
+    var notify = '<%= theme.waline.notify %>' == true ? true : false;
+    var verify = '<%= theme.waline.verify %>' == true ? true : false;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      // 设置自定义文字
+      const locale = {
+        placeholder: "<%= theme.waline.placeholder %>",
+        uploading: "上传中...默认图床在境内可能无法访问"
+      };
+      Waline({
+        el: '#vcomments',
+        serverURL: "<%= theme.waline.serverurl %>",
+        avatar: "<%= theme.waline.avatar %>",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "<%= theme.waline.pageSize %>",
+        // 设置 emoji
+        emoji: [
+          'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus',
+          'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/weibo',
+          'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba',
+        ],
+        // 设置自定义文字
+        locale,
+        // 图片上传函数
+        uploadImage: function(file){
+          const formData = new FormData();
+          formData.append('image', file);
+          formData.append('privateStorage', 'backblaze');
+          formData.append('apiType', 'catbox');
+          formData.append('token', '146faa57355f01c8eed8a045eda6a684');
+          return fetch('https://www.hualigs.cn/api/upload', {
+            method: 'POST',
+            mode: 'cors',
+            body: formData
+          }).then(
+            res => res.json()
+          ).then(function(response) {
+            const checkUrl = new RegExp('^[a-zA-z]+://[^\s]*');
+            return checkUrl.test(response.data.url.private.backblaze) ? response.data.url.private.backblaze : response.data.url.catbox
+          });
+        }
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://waline.js.org" rel="nofollow noopener">comments
+      powered by Waline.</a></noscript>
+<% } %>
