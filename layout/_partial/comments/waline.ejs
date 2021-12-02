@@ -47,7 +47,9 @@
             res => res.json()
           ).then(function(response) {
             const checkUrl = new RegExp('^[a-zA-z]+://[^\s]*');
-            return checkUrl.test(response.data.url.private.backblaze) ? response.data.url.private.backblaze : response.data.url.catbox
+            let backblaze = response.data.url.private.backblaze;
+            let catbox = 'https://avatar.75cdn.workers.dev/?url=' + encodeURIComponent(response.data.url.catbox);
+            return checkUrl.test(backblaze) ? backblaze : catbox
           });
         }
       });
