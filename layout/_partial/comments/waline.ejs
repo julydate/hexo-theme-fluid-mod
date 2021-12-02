@@ -1,4 +1,10 @@
 <% if(theme.waline.serverurl){ %>
+  <style type="text/css">
+    .v[data-class=v] .vcontent > p > a:not(.at) {
+      overflow-wrap: anywhere;
+      display: inline;
+    }
+  </style>
   <div id="vcomments" style="margin: 0 auto;"></div>
   <script defer src="//cdn.jsdelivr.net/npm/@waline/client@latest/dist/Waline.min.js"></script>
   <script>
