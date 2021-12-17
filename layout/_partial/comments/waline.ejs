@@ -33,27 +33,56 @@
         // 设置自定义文字
         locale,
         // 图片上传函数
-        uploadImage: function(file){
-          const formData = new FormData();
-          formData.append('image', file);
-          formData.append('privateStorage', 'backblaze');
-          formData.append('apiType', 'catbox');
-          formData.append('token', '146faa57355f01c8eed8a045eda6a684');
-          return fetch('https://www.hualigs.cn/api/upload', {
-            method: 'POST',
-            mode: 'cors',
-            body: formData
-          }).then(
-            res => res.json()
-          ).then(function(response) {
-            const checkUrl = new RegExp('^[a-zA-z]+://[^\s]*');
-            let backblaze = response.data.url.private.backblaze;
-            let catbox = 'https://avatar.75cdn.workers.dev/?url=' + encodeURIComponent(response.data.url.catbox);
-            return checkUrl.test(backblaze) ? backblaze : catbox
-          });
+        uploadImage: function (file) {
+          return smms(file)
         }
       });
       oldLoad && oldLoad();
+      // smms 图床，Authorization 的位置为 smms 图床的 token（可选）
+      function smms(file) {
+        const formData = new FormData();
+        formData.append('smfile', file);
+        formData.append('format', 'json');
+        let data = fetch('https://smms.pvq.workers.dev/upload', {
+          method: 'POST',
+          mode: 'cors',
+          headers: new Headers({
+            'Authorization': 'FNnpntzeJnw1SQc61jL6Tt1UZPzmhLBT'
+          }),
+          body: formData
+        }).then(
+          res => res.json()
+        ).then(function(response) {
+          const checkUrl = new RegExp('^[a-zA-z]+://[^\s]*');
+          let url = response.code == 'image_repeated' ? response.images : (response.data.url ? response.data.url : '');
+          // 若 smms 图床调用失败则转发请求到遇见图床
+          return checkUrl.test(url) ? url : hualigs(file);
+        }).catch(function(error) {
+          // smms 图床调用失败，尝试遇见图床
+          return hualigs(file);
+        });
+        return data;
+      }
+      // 遇见图床
+      function hualigs(file){
+        const formData = new FormData();
+        formData.append('image', file);
+        formData.append('privateStorage', 'backblaze');
+        formData.append('apiType', 'catbox');
+        formData.append('token', '146faa57355f01c8eed8a045eda6a684');
+        return fetch('//www.hualigs.cn/api/upload', {
+          method: 'POST',
+          mode: 'cors',
+          body: formData
+        }).then(
+          res => res.json()
+        ).then(function(response) {
+          const checkUrl = new RegExp('^[a-zA-z]+://[^\s]*');
+          let backblaze = response.data.url.private.backblaze;
+          let catbox = 'https://avatar.75cdn.workers.dev/?url=' + encodeURIComponent(response.data.url.catbox);
+          return checkUrl.test(backblaze) ? backblaze : catbox
+        });
+      }
     };
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://waline.js.org" rel="nofollow noopener">comments
