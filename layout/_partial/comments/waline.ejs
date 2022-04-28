@@ -6,7 +6,8 @@
     }
   </style>
   <div id="vcomments" style="margin: 0 auto;"></div>
-  <script defer src="//cdn.jsdelivr.net/npm/@waline/client@latest/dist/Waline.min.js"></script>
+  <!-- <script defer src="//cdn.jsdelivr.net/npm/@waline/client@latest/dist/Waline.min.js"></script> -->
+  <script defer src="//unpkg.zhimg.com/@waline/client@latest/dist/Waline.min.js"></script>
   <script>
     var notify = '<%= theme.waline.notify %>' == true ? true : false;
     var verify = '<%= theme.waline.verify %>' == true ? true : false;
@@ -26,9 +27,9 @@
         pageSize: "<%= theme.waline.pageSize %>",
         // 设置 emoji
         emoji: [
-          'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus',
-          'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/weibo',
-          'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba',
+          'https://avatar.75cdn.workers.dev/?url=https://github.com/walinejs/emojis/raw/main/alus',
+          'https://avatar.75cdn.workers.dev/?url=https://github.com/walinejs/emojis/raw/main/weibo',
+          'https://avatar.75cdn.workers.dev/?url=https://github.com/walinejs/emojis/raw/main/tieba',
         ],
         // 设置自定义文字
         locale,
