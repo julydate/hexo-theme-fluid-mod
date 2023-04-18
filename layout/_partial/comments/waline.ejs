@@ -1,12 +1,13 @@
 <% if(theme.waline.serverurl){ %>
+  <link rel="stylesheet" href="//cdn.staticfile.org/waline/2.15.0/waline.min.css" />
   <style type="text/css">
-    .v[data-class=v] .vcontent > p > a:not(.at) {
+    .wl-[data-class=wl-] .wl-content > p > a:not(.at) {
       overflow-wrap: anywhere;
       display: inline;
     }
   </style>
   <div id="vcomments" style="margin: 0 auto;"></div>
-  <script defer src="//cdn.staticfile.org/waline/1.6.0/Waline.min.js"></script>
+  <script defer src="//cdn.staticfile.org/waline/2.15.0/waline.min.js"></script>
   <script>
     var notify = '<%= theme.waline.notify %>' == true ? true : false;
     var verify = '<%= theme.waline.verify %>' == true ? true : false;
@@ -17,23 +18,21 @@
         placeholder: "<%= theme.waline.placeholder %>",
         uploading: "上传中...默认图床在境内可能无法访问"
       };
-      Waline({
+      Waline.init({
         el: '#vcomments',
         serverURL: "<%= theme.waline.serverurl %>",
-        avatar: "<%= theme.waline.avatar %>",
-        avatarCDN: "<%= theme.waline.avatarcdn %>",
         meta: ['nick', 'mail', 'link'],
         pageSize: "<%= theme.waline.pageSize %>",
         // 设置 emoji
         emoji: [
-          'https://avatar.75cdn.workers.dev/?url=https://github.com/walinejs/emojis/raw/main/alus',
-          'https://avatar.75cdn.workers.dev/?url=https://github.com/walinejs/emojis/raw/main/weibo',
-          'https://avatar.75cdn.workers.dev/?url=https://github.com/walinejs/emojis/raw/main/tieba',
+          'https://github.com/walinejs/emojis/raw/main/alus',
+          'https://github.com/walinejs/emojis/raw/main/weibo',
+          'https://github.com/walinejs/emojis/raw/main/tieba',
         ],
         // 设置自定义文字
         locale,
         // 图片上传函数
-        uploadImage: function (file) {
+        imageUploader: function (file) {
           return smms(file)
         }
       });
@@ -67,7 +66,6 @@
       function hualigs(file){
         const formData = new FormData();
         formData.append('image', file);
-        formData.append('privateStorage', 'backblaze');
         formData.append('apiType', 'catbox');
         formData.append('token', '146faa57355f01c8eed8a045eda6a684');
         return fetch('//www.hualigs.cn/api/upload', {
@@ -78,9 +76,8 @@
           res => res.json()
         ).then(function(response) {
           const checkUrl = new RegExp('^[a-zA-z]+://[^\s]*');
-          let backblaze = response.data.url.private.backblaze;
-          let catbox = 'https://avatar.75cdn.workers.dev/?url=' + encodeURIComponent(response.data.url.catbox);
-          return checkUrl.test(backblaze) ? backblaze : catbox
+          let catbox = response.data.url.catbox
+          return checkUrl.test(catbox) ? catbox : response.data.url[2]
         });
       }
     };

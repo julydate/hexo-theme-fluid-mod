@@ -295,8 +295,6 @@ waline:
   notify: false # mail notifier, See: https://github.com/xCss/Valine/wiki
   verify: false # Verification code
   placeholder: 说点什么 # comment box placeholder
-  avatar: retro # gravatar style https://waline.js.org/avatar.html
-  avatarcdn: https://gravatar.loli.net/avatar/ # gravatar proxy
   pageSize: 10 # pagination size
 
 # Changyan
